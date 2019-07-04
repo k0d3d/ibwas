@@ -1,0 +1,14 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: 18px;
+        padding-left: 0.8em;
+        padding-right: 0.8em;
+        color: black;
+    }
+}
