@@ -10,7 +10,7 @@
 aside {
   width: 50%;
   position: relative;
-  margin-top: 150px;
+  margin-top: 80px;
 }
 
 aside h1 {
@@ -18,24 +18,36 @@ aside h1 {
   font-size: 66px;
   line-height: 112.5%;
 }
+
+aside p {
+  font-size: 22px;
+}
 .icon-figure {
   display: none;
 }
 
+
+
 @media (min-width: 320px) and (max-width: 480px)  {
   aside {
-    width: 90vw;
+    width: 73vw;
     margin-top: 15%;
   }
   aside h1 {
-    font-size: 50px;
+    font-size: 42px;
   }
   .carousel {
     background-position: center, top right;
     background-size: cover;
     background-repeat: no-repeat;
   }
+  .d-flex {
+    justify-content: center;
+    text-align: center;
+  }
   .icon-figure {
     display: block;
+    top: 42px;
+    position: relative;
   }
 }

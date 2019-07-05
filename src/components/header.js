@@ -9,7 +9,7 @@ import logo from '../images/logo.png'
 
 const style = {
   nav: {
-    height: "100px"
+    height: "75px"
   },
   logo: {
     height: "70px"

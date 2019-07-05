@@ -1,8 +1,13 @@
 @import '~bootstrap/scss/bootstrap.scss';
 @import './animation.css';
+@import '../components/layout.css';
 
 body {
     font-family: 'Poppins', sans-serif;
+}
+
+section {
+    min-height: 80vh;
 }
 
 @media (min-width: 992px) {
