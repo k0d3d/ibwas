@@ -2,10 +2,86 @@ import React from "react"
 import img1 from '../../images/apartment-bedroom-drawers-879821.jpg'
 import img2 from '../../images/apartment-door-door-handle-16515.jpg'
 
-import './mid-section.scss';
-
 
 export const Midsection = () => (
+    <>
+        <style jsx>
+        {`
+
+        
+            section {
+            position: relative;
+            }
+        
+            .card-box {
+            width: 434px * 2 - 100;
+            margin-left: auto;
+            margin-right: auto;
+            top: -100px;
+            position: relative;
+            }
+        
+            .card {
+            width: 434px;
+            height: 484px;
+            img {
+                width: 434px;
+                height: 484px;
+            }
+            position: relative;
+            top: 0;
+            border: none;
+            }
+        
+            .card-title {
+            font-weight: bold;
+            font-size: 4em;
+            line-height: 75px;
+            color: #000000;
+            }
+        
+            .card-body {
+            padding: 1.9rem;
+            }
+        
+            .card-text {
+            font-size: 2em;
+            }
+
+            grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+                grid-template-areas: "card-box card-box . ." "card-box card-box . ." "card-box card-box . ." "card-box card-box . .";
+                }
+            
+                .card-box {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+                grid-template-areas: "card1 ." "card1 card2" "card3 card2" "card3 .";
+                grid-area: card-box;
+                }
+            
+                .card1 {
+                grid-area: card1;
+                }
+            
+                .card2 {
+                grid-area: card2;
+                right: 50px;
+                }
+            
+                .card3 {
+                grid-area: card3;
+                .card-text {
+                    margin-top: 40px;
+                }
+                }            
+            
+            `
+        }
+        </style>
     <section className="section grid-container">
         <div className="card-box">        
             <div className="card card1">
@@ -26,4 +102,5 @@ export const Midsection = () => (
             </div>
         </div>
     </section>
+    </>
 );
