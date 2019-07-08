@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Slider from "../components/slider/index"
-import { Midsection, ExploreProductSection } from '../components/home'
+import { Midsection, EasyOrder, ExploreProducts } from '../components/home'
 
 
 import SEO from "../components/seo"
@@ -14,7 +14,8 @@ const IndexPage = () => (
     <Slider />
     <div className="container">
       <Midsection />
-      <ExploreProductSection />
+      <EasyOrder />
+      <ExploreProducts />
     </div> 
   </Layout>
 )

@@ -5,7 +5,7 @@ import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 
 
 
-export const ExploreProductSection = () => {
+export const EasyOrder = () => {
   const {swapi} = useStaticQuery(
     graphql`
       query GET_POSTS {
@@ -30,7 +30,7 @@ export const ExploreProductSection = () => {
   return (
     <>
     <style jsx>{`
-          $bgc: #eeeeee;
+          $bgc: #f4f4f4;
           .light-grey {
             background-color: $bgc;
           }
@@ -38,58 +38,29 @@ export const ExploreProductSection = () => {
           .slant {
             top: 0;
             margin-top: 100px;
+            position: relative;
             .angled {
               height: 200px;
               width: calc(102% - 5px);
-              background-color: #eee;
-              position: relative;
+              background-color: rgb(208, 210, 232);
+              position: absolute;
               top: 0;
               left: 0;
               transform: rotate(-10deg) skew(-10deg);
               transform-origin: top;
               -webkit-transform: rotate(-10deg) skew(-10deg);
               -webkit-transform-origin: 0 0;
-              z-index: -1;
+              z-index: 2;
+
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1c24da+49,ffffff+49 */
+background: #1c24da; /* Old browsers */
+background: linear-gradient(to bottom,  #1c24da 2%, rgb(208, 210, 232) 3%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c24da', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
             }
-          }
-          
-          .section-content {
-            padding: 3em;
-            margin-top: -203px;
-            h3 {
-              font-weight: bold;
-            }
-            h3, h4 {
-              width: 70%;
-              text-align: center;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            h3 {
-              font-size: 4em;
-            }
-          }
-          .card-title {
-            text-align: left;
-            font-weight: bold;
-          }
-          .btn-link:hover {
-            text-decoration: none
-          }
-          .card-img-top img {
-            width: 218px;
-            height: 140px;
-          }
-          .btn-link {
-            margin-top: -25px;
-            margin-left: -12px;
-          }
-          .card {
-            width: 292px;
-            height: 372px;
-            &:hover {
-              background: #FFFFFF;
-              box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.25);
+            .section-content {
+              z-index: 3;
+              position: relative;
             }
           }
         `

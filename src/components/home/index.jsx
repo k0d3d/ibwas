@@ -1,8 +1,10 @@
 
 import { Midsection } from './mid-section'
-import { ExploreProductSection } from './explore-product-section'
+import { EasyOrder } from './easy-order'
+import { ExploreProducts } from './explore-products'
 
 export {
     Midsection,
-    ExploreProductSection
+    EasyOrder,
+    ExploreProducts
 }

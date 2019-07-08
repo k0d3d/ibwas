@@ -1,20 +1,63 @@
-@import '~bootstrap/scss/bootstrap.scss';
-@import './animation.css';
-@import '../components/layout.css';
+@import "~bootstrap/scss/bootstrap.scss";
+@import "./animation.css";
+@import "../components/layout.css";
 
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 section {
-    min-height: 80vh;
+  min-height: 80vh;
 }
 
-@media (min-width: 992px) {
-    .navbar-expand-lg .navbar-nav .nav-link {
-        font-size: 18px;
-        padding-left: 0.8em;
-        padding-right: 0.8em;
-        color: black;
+.card-title {
+  text-align: left;
+  font-weight: bold;
+}
+.btn-link:hover {
+  text-decoration: none;
+}
+.card-img-top img {
+  width: 218px;
+  height: 140px;
+}
+.btn-link {
+  margin-top: -25px;
+  margin-left: -12px;
+}
+.card {
+  width: 292px;
+  height: 372px;
+  &:hover {
+    background: #ffffff;
+    box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.25);
+  }
+}
+.slant {
+    padding: 3em;
+    margin-top: -203px;
+}
+.section-content {
+    
+    h3 {
+      font-weight: bold;
     }
+    h3, h4 {
+      width: 70%;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h3 {
+      font-size: 4em;
+    }
+  }
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    font-size: 18px;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    color: black;
+  }
 }
