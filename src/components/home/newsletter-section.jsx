@@ -77,7 +77,7 @@ export const NewsletterSection = () => {
         `}
       </style>
       <section className="section grid-container mt-5 mb-5">
-        <div className="section-content mt-3">        
+        <div className="section-content mt-3 pt-5">        
           <h3 className="text-center">Testimonials</h3>
           <h4 className="mt-0 mb-5 text-center">
             Happy customers who share their stories
