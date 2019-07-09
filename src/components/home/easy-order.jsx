@@ -51,16 +51,37 @@ export const EasyOrder = () => {
               -webkit-transform: rotate(-10deg) skew(-10deg);
               -webkit-transform-origin: 0 0;
               z-index: 2;
-
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1c24da+49,ffffff+49 */
-background: #1c24da; /* Old browsers */
-background: linear-gradient(to bottom,  #1c24da 2%, rgb(208, 210, 232) 3%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c24da', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-
+              /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1c24da+49,ffffff+49 */
+              background: #1c24da; /* Old browsers */
+              background: linear-gradient(to bottom,  #1c24da 2%, rgb(244, 244, 244) 3%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c24da', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
             }
             .section-content {
               z-index: 3;
               position: relative;
+            }
+            .card {
+              width: 292px;
+              height: 372px;
+              &:hover {
+                background: #ffffff;
+                box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.25);
+              }
+            }
+            .card-title {
+              text-align: left;
+              font-weight: bold;
+            }
+            .btn-link:hover {
+              text-decoration: none;
+            }
+            .card-img-top img {
+              width: 218px;
+              height: 140px;
+            }
+            .btn-link {
+              margin-top: -25px;
+              margin-left: -12px;
             }
           }
         `
