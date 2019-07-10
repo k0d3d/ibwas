@@ -45,7 +45,7 @@ const Header = ({ siteTitle }) => (
       </ul>
       <ul className="navbar-nav float-right">
         <li className="nav-item">
-          <a href="" className="nav-link">About Us</a>
+          <Link  to="/about" className="nav-link">About Us</Link>
         </li>
         <li className="nav-item">
           <a href="" className="nav-link">

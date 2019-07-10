@@ -13,9 +13,6 @@ const IndexPage = () => (
     <SEO title="Home" />
     <Slider />
     <div className="container">
-      <Midsection />
-      <EasyOrder />
-      <ExploreProducts />
       <TestimonalSection />
       <BlogStorySection />
       <NewsletterSection />

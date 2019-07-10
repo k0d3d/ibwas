@@ -1,116 +1,83 @@
-import React from "react"
+import React from 'react'
 
-import personImg from '../../images/Ellipse.png'
-import img2 from '../../images/rect2.jpg'
-import ratingImg from '../../images/baseline-star_rate-18px.png'
-import quoteImg from '../../images/baseline-format_quote-24px.png'
 
 export const NewsletterSection = () => {
 
   return (
     <>
-      <style jsx>{`
-          $content-box-width: 600px;
-          .content-box {
-            background: #4850FF;
-            color: #fff;
-            margin: auto 0 auto 140px;
-            position: relative;
-            width: $content-box-width;
-            padding: 3em 5em 3em 7em;
-            min-height: 281px;
-            background: linear-gradient(0deg, rgba(72, 80, 255, 0.7), rgba(72, 80, 255, 0.8)), linear-gradient(180deg, rgba(146, 151, 255, 0.67) 0%, rgba(255, 255, 255, 0.2) 90%), url('/apartment-architecture-artist-447592.jpg');
-            background-position: center,center, center bottom;
-            background-size: cover;
-            background-repeat: no-repeat;
-            figure {
-              position: absolute;
-            }
-            .quote {
-              right: -100px
-            }
-            .personface {
-              left: -50px;
-              img {
-                width:155px;
-              }
-            }
-            .rating-box img {
-              width: 30px;
-            }
-            &::after {
-              content: "";
-              width: 90%;
-              position: relative;
-              bottom: 150px;
-              background-color: #979BEE;
-            }
-          }
-          .content-box:nth-of-type(2) {
-            background: lighten(rgba(72, 80, 255, 0.9), 10%);
-            width: $content-box-width - 30px;
-            padding: 0 15px;
-            left: 0;
-            z-index: -1;
-            min-height: 20px;
-          }
-          .content-box:nth-of-type(3) {
-            background: lighten(rgba(72, 80, 255, 0.9), 20%);
-            width: $content-box-width - 60px;
-            min-height: 20px;
-            padding: 0 30px;
-            left: 0;
-            z-index: -2;
-          }
-          p.lead strong {
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 26px;
-          }
-          .desk-photo {
-            width: 100%;
-            display: block;
-            min-height: 600px;
-            background-image: url('../../images/rect2.jpg');
-            background-size: cover;
-          }
-        `}
-      </style>
-      <section className="section grid-container mt-5 mb-5">
-        <div className="section-content mt-3 pt-5">        
-          <h3 className="text-center">Testimonials</h3>
-          <h4 className="mt-0 mb-5 text-center">
-            Happy customers who share their stories
-          </h4>
-          <div className="row pointed-shadow">
-            <div className="col-md-12">
-              <div className="content-box mx-auto">
-                <figure className="float-left quote">
-                  <img src={quoteImg} alt="quote"/>
-                </figure>
-                <figure className="float-left personface">
-                  <img src={personImg} alt="kunle-face"/>
-                </figure>
-                <p className="lead">
-                  <strong>
-                    I am always happy to refer my colleagues to you when they want to purchase furniture material because I know they will get the same service. I am impressed.
-                  </strong>
-                </p>
-                <p className=" mb-0">Kunle Adewole</p>
-                <p className="rating-box">
-                  <img src={ratingImg} alt="star5"/>
-                  <img src={ratingImg} alt="star5"/>
-                  <img src={ratingImg} alt="star5"/>
-                  <img src={ratingImg} alt="star5"/>
-                  <img src={ratingImg} alt="star5"/>
-                </p>
-              </div>
-              <div className="content-box mx-auto"></div>
-              <div className="content-box mx-auto"></div>
+        <style jsx>
+            {`
+                .section  {
+                    background-image: url('./cool-background.svg')
+                }
+            `}
+        </style>
+        <section className="section contact-area pt-135 pb-125"> 
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-6 col-md-6">
+                        <div className="contact-info-h3">
+                            <div className="section-title-2 contact-sec-title">
+                                <h2>Contact</h2>
+                                <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elituis.</p>
+                            </div>
+                            <div className="cont-infoh3-wrap">
+                                <div className="single-cont-infoh3">
+                                    <div className="cont-infoh3-icon">
+                                        <i className="ti-location-pin"></i>
+                                    </div>
+                                    <div className="cont-infoh3-content">
+                                        <p>5th Ave &amp; W 115th St, New York th St, New York</p>
+                                    </div>
+                                </div>
+                                <div className="single-cont-infoh3">
+                                    <div className="cont-infoh3-icon">
+                                        <i className="ti-mobile"></i>
+                                    </div>
+                                    <div className="cont-infoh3-content">
+                                        <p>+1 35 776 859 000  /  +1 35 776 859 011</p>
+                                    </div>
+                                </div>
+                                <div className="single-cont-infoh3">
+                                    <div className="cont-infoh3-icon">
+                                        <i className="ti-email"></i>
+                                    </div>
+                                    <div className="cont-infoh3-content">
+                                        <p><a href="#">supportvital@.com </a> / <a href="#"> vitalinfo@gmail.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-6 col-md-6">
+                        <div className="contact-form-h3">
+                            <form id="contact-form" action="assets/mail.php" method="post">
+                                <div className="row">
+                                    <div className="col-lg-12 col-xl-6">
+                                        <div className="contact-form-style mb-15">
+                                            <input name="name" placeholder="Name" type="text" />
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-12 col-xl-6">
+                                        <div className="contact-form-style mb-15">
+                                            <input name="email" placeholder="Email" type="email" />
+                                        </div>
+                                    </div>
+                                    <div className="col-lg-12">
+                                        <div className="contact-form-style">
+                                            <textarea name="message" placeholder="Add a Message"></textarea>
+                                            <button className="btn-hover submit" type="submit">Send Message</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>    
+    
     </>
   )
-}     
+
+}

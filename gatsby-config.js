@@ -26,7 +26,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
       },
     },
     {
@@ -45,6 +45,24 @@ module.exports = {
         optimizeForSpeed: true,
         sourceMaps: false,
         vendorPrefixes: true,     
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "IBWAS Nigeria Limited",
+        short_name: "IBWASNGLTD.com",
+        start_url: "/",
+        background_color: "#1C24DA",
+        theme_color: "#1C24DA",
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: "standalone",
+        icon: "src/images/logo.png", // This path is relative to the root of the site.
+        // An optional attribute which provides support for CORS check.
+        // If you do not provide a crossOrigin option, it will skip CORS for manifest.
+        // Any invalid keyword or empty string defaults to `anonymous`
+        crossOrigin: `use-credentials`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

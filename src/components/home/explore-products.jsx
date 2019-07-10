@@ -7,13 +7,25 @@ import img4 from '../../images/Rectangle 7.6.jpg'
 export const ExploreProducts = () => (
   <>
     <style jsx>{`
+        .section {
+          background-color: #DFDBE5;
+          background-image: url("./papyrus.png");
+        }
         .timg img{
-          width: 250px;
+          width: 240px;
           height: auto;
         }
+        .section-content {
+            h3, h4 {
+              width: 70%;
+              text-align: center;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          }
       `}
     </style>
-    <section className="pt-5">
+    <section className="section pt-5">
       <div className="section-content pt-5 mb-5">
             <h3>Explore our products</h3>
             <h4 className="mt-0 mb-5">

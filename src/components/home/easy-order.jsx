@@ -37,7 +37,8 @@ export const EasyOrder = () => {
           
           .slant {
             top: 0;
-            margin-top: 100px;
+            margin-top: -12px;
+            z-index: -1;
             position: relative;
             .angled {
               height: 200px;
@@ -59,6 +60,12 @@ export const EasyOrder = () => {
             .section-content {
               z-index: 3;
               position: relative;
+              h3, h4 {
+                width: 70%;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+              }
             }
             .card {
               width: 292px;
