@@ -26,8 +26,8 @@ class IndexPage extends React.Component {
           <TestimonalSection />
           <BlogStorySection />
           <NewsletterSection />
-          <Footer />
         </div> 
+        <Footer />
       </Layout>
     );
   }

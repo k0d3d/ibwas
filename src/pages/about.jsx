@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Slider from "../components/slider/index"
 import { NewsletterSection, BlogStorySection, TestimonalSection } from '../components/home'
-// import { MidSection, StorySection } from '../components/about/index'
+import { MidSection } from '../components/about/index'
 import { Footer } from '../components/footer'
 
 import SEO from "../components/seo"
@@ -19,9 +19,12 @@ class IndexPage extends React.Component {
       <Layout>
         <SEO title="Home" />
         <Slider subTitle={this.subTitle} headingTitle={this.headingTitle} />
+        <div className="container">
+        <MidSection />
         <TestimonalSection />
         <BlogStorySection />
         <NewsletterSection />
+        </div>
         <Footer />
       </Layout>
     );
