@@ -1,5 +1,4 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby"
 
 import blogImg from '../../images/blogimg.jpg'
 
@@ -31,7 +30,7 @@ export const BlogStorySection = () => {
         <div className="row">
           <div className="col-md-10">
             <div className="media">
-              <img src={blogImg} className="mr-3" alt="blog-image" />
+              <img src={blogImg} className="mr-3" alt="" />
               <div className="media-body align-self-center">
                 <h5 className="mt-0 card-title">
                   How to make 3D printed wood

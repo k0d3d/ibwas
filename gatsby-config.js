@@ -34,8 +34,8 @@ module.exports = {
       options: {
         typeName: "WordPress",
         fieldName: "swapi",
-        url: "http://34.68.227.209:3008/graphql",
-        refetchInterval: 5,
+        url: "https://ibwasngltd.com/api/graphql",
+        refetchInterval: 15,
       },
     },
     {

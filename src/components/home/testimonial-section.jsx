@@ -1,7 +1,6 @@
 import React from "react"
 
 import personImg from '../../images/Ellipse.png'
-import img2 from '../../images/rect2.jpg'
 import ratingImg from '../../images/baseline-star_rate-18px.png'
 import quoteImg from '../../images/baseline-format_quote-24px.png'
 

@@ -21,32 +21,6 @@ export const NewsletterSection = () => {
                                 <h2>Contact</h2>
                                 <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elituis.</p>
                             </div>
-                            <div className="cont-infoh3-wrap">
-                                <div className="single-cont-infoh3">
-                                    <div className="cont-infoh3-icon">
-                                        <i className="ti-location-pin"></i>
-                                    </div>
-                                    <div className="cont-infoh3-content">
-                                        <p>5th Ave &amp; W 115th St, New York th St, New York</p>
-                                    </div>
-                                </div>
-                                <div className="single-cont-infoh3">
-                                    <div className="cont-infoh3-icon">
-                                        <i className="ti-mobile"></i>
-                                    </div>
-                                    <div className="cont-infoh3-content">
-                                        <p>+1 35 776 859 000  /  +1 35 776 859 011</p>
-                                    </div>
-                                </div>
-                                <div className="single-cont-infoh3">
-                                    <div className="cont-infoh3-icon">
-                                        <i className="ti-email"></i>
-                                    </div>
-                                    <div className="cont-infoh3-content">
-                                        <p><a href="#">supportvital@.com </a> / <a href="#"> vitalinfo@gmail.com</a></p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-6">

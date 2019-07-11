@@ -25,9 +25,9 @@ const style = {
 const Header = ({ siteTitle }) => (
 <div className="container">
   <nav className="navbar navbar-expand-lg navbar-light" style={style.nav}>
-    <a className="navbar-brand" href="#">
+    <Link className="navbar-brand" to="/">
       <img style={style.logo} src={logo} className="d-inline-block align-top" alt="" />
-    </a>
+    </Link>
 
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <FontAwesomeIcon icon={faEllipsisV} />
@@ -37,25 +37,25 @@ const Header = ({ siteTitle }) => (
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <a className="nav-link" href="#" style={style.redText}>
+          <Link className="nav-link" to="/" style={style.redText}>
             Order Products <span className="sr-only">(current)</span>
 
-          </a>
+          </Link>
         </li>
       </ul>
       <ul className="navbar-nav float-right">
         <li className="nav-item">
-          <Link  to="/about" className="nav-link">About Us</Link>
+          <Link to="/about" className="nav-link">About Us</Link>
         </li>
         <li className="nav-item">
-          <a href="" className="nav-link">
+          <Link to="/" className="nav-link">
             Stories
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="" className="nav-link">
+          <Link to="/" className="nav-link">
             Contact Us
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
