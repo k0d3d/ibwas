@@ -1,6 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
-
 import Layout from "../components/layout"
 import Slider from "../components/slider/index"
 import { NewsletterSection, BlogStorySection, TestimonalSection } from '../components/home'
@@ -21,7 +19,10 @@ class IndexPage extends React.Component {
       <Layout>
         <SEO title="Home" />
         <Slider subTitle={this.subTitle} headingTitle={this.headingTitle} />
-
+        <TestimonalSection />
+        <BlogStorySection />
+        <NewsletterSection />
+        <Footer />
       </Layout>
     );
   }
