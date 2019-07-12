@@ -8,9 +8,11 @@ import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 export const EasyOrder = () => {
   const {swapi} = useStaticQuery(
     graphql`
-      query GET_POSTS {
-        swapi {
-          pageSections {
+      query PAGE_SECTION {
+        swapi {          
+          pageSections(where: {
+            categoryName: "easyorder"
+          }){
             edges {
               node {
                 id

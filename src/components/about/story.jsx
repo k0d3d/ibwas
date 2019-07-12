@@ -23,8 +23,8 @@ export function StorySection () {
     <>
       <style jsx>{`
         $sectionHeight: 600px;
-        section {
-
+        .section-content {
+          height: $sectionHeight;
         }
         .black-bg {
           background-color: black;
