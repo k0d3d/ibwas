@@ -10,9 +10,8 @@ export function MidSection () {
     graphql`
       query {
         swapi {
-          pageBy(uri: "about") {
+          pageSectionBy(uri: "about") {
             id
-            pageId
             title
             date
             uri
@@ -51,7 +50,7 @@ export function MidSection () {
               <img src={img2} alt="bed2" />
             </div>
             <div className="block-quote" dangerouslySetInnerHTML={{
-              __html: swapi.pageBy.content
+              __html: swapi.pageSectionBy.content
             }}>
 
             </div>

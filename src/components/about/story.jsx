@@ -7,9 +7,8 @@ export function StorySection () {
     graphql`
       query {
         swapi {
-          pageBy(uri: "our-story") {
+          pageSectionBy(uri: "our-story") {
             id
-            pageId
             title
             date
             uri
@@ -76,9 +75,9 @@ export function StorySection () {
                   <img src={storyImg} alt=""/>
                 </div>
                 <div className="txt-box">
-                  <h3>{swapi.pageBy.title}</h3>
+                  <h3>{swapi.pageSectionBy.title}</h3>
                   <div className="content-text" dangerouslySetInnerHTML={{
-                    __html: swapi.pageBy.content
+                    __html: swapi.pageSectionBy.content
                   }}></div>
                 </div>
           </div>
