@@ -22,7 +22,7 @@ export function StorySection () {
   return (
     <>
       <style jsx>{`
-        $sectionHeight: 80vh;
+        $sectionHeight: 600px;
         section {
 
         }
@@ -32,13 +32,35 @@ export function StorySection () {
         }  
         .story-box {
           position: relative; 
-          margin-top: -$sectionHeight ;
-          margin-left: 4em;
-          margin-right: 4em;
-          background-color: #555AE4;
+          top: -$sectionHeight ;
+          left: 30px;
+          height: $sectionHeight - 100px;
+          margin: 50px auto;
+          width: 95%;
           color: #fff;
+          overflow: hidden;
+          box-shadow: 1px 3px 20px 0px #000000b8;
           img {
             width: 100%;
+          }
+          .img-box {
+            padding-left: 0;
+            width: 50%;
+            display: inline-block;
+            float: left;
+          }
+          .txt-box {
+            background-color: #555AE4;
+            padding: 2.5em;
+            width: 50%;
+            height: 100%;
+            display: inline-block;
+            h3 {
+              font-weight: bold;
+              font-size: 72px;
+              line-height: 108px;
+              color: #000000;
+            }
           }
         }                                                                                                                                                                           
       `}
@@ -48,19 +70,17 @@ export function StorySection () {
           <div className="row">
             <div className="col-md-6 black-bg"></div>
             <div className="col-md-6"></div>
-            <div className="col-md-10 story-box">
-              <div className="row">
-                <div className="col-md-6">
+          </div>
+          <div className="story-box">
+                <div className="img-box">
                   <img src={storyImg} alt=""/>
                 </div>
-                <div className="col-md-6">
-                  <h1>{swapi.pageBy.title}</h1>
+                <div className="txt-box">
+                  <h3>{swapi.pageBy.title}</h3>
                   <div className="content-text" dangerouslySetInnerHTML={{
                     __html: swapi.pageBy.content
                   }}></div>
                 </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
