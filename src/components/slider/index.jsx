@@ -1,9 +1,46 @@
-import React from "react"
+import React, { useState, useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
 
-function Slider (props) {
+
+function useInterval(callback, delay) {
+  const savedCallback = useRef();
+
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
+
+function Slider ({subTitle, headingTitle, headingTitles}) {
+
+  let pos = 0
+  
+  const [heading, setHeading] = useState()
+  if (headingTitle && headingTitle.length) {
+    setHeading(headingTitle)
+  }
+  
+  if (headingTitles && headingTitles.length) {
+    useInterval(() => {
+      ++pos
+      setHeading(headingTitles[pos % headingTitles.length])
+    }, 3000)
+  }
+    
+
   return <section>
   <style jsx>{`
 
@@ -67,11 +104,11 @@ function Slider (props) {
               <div className="container">
                   <aside>
                           <h1 className="slide-in-blurred-top">
-                              {props.headingTitle}
+                              {heading}
                           </h1>
 
                           <p className="slide-in-blurred-left">
-                              { props.subTitle } 
+                              { subTitle } 
                           </p>
                   </aside>
               </div>
@@ -87,8 +124,9 @@ function Slider (props) {
 }
 
 Slider.propTypes = {
-  headingTitle: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired
+  headingTitles: PropTypes.array,
+  headingTitle: PropTypes.string,
+  subTitle: PropTypes.string
 }
 
 export default Slider

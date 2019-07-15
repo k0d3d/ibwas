@@ -4,7 +4,7 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { Link } from "gatsby"
 
-export const Footer = () => (
+const Footer = () => (
 
 <footer className="footer-area gray-bg footer-hm3 pt-90 pb-90">
   <style jsx>{`
@@ -52,3 +52,5 @@ export const Footer = () => (
         </footer>
 
 )
+
+export default Footer

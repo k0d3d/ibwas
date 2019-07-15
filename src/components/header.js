@@ -37,7 +37,7 @@ const Header = ({ siteTitle }) => (
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <Link className="nav-link" to="/" style={style.redText}>
+          <Link className="nav-link" to="/products" style={style.redText}>
             Order Products <span className="sr-only">(current)</span>
 
           </Link>

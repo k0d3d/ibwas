@@ -2,11 +2,14 @@ import React from "react"
 
 import Layout from "../components/layout"
 import Slider from "../components/slider/index"
-import { Midsection, EasyOrder, ExploreProducts, NewsletterSection, BlogStorySection, TestimonalSection } from '../components/home'
-import { Footer } from '../components/footer'
-
-import SEO from "../components/seo"
-
+import { 
+  Midsection, 
+  EasyOrder, 
+  ExploreProducts, 
+  NewsletterSection, 
+  BlogStorySection, 
+  TestimonalSection 
+} from '../components/home/index'
 class IndexPage extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +20,6 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home" />
         <Slider subTitle={this.subTitle} headingTitle={this.headingTitle} />
         <div className="container">
           <Midsection />
@@ -27,7 +29,6 @@ class IndexPage extends React.Component {
           <BlogStorySection />
           <NewsletterSection />
         </div> 
-        <Footer />
       </Layout>
     );
   }
