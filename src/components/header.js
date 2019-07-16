@@ -54,7 +54,7 @@ const Header = ({ siteTitle }) => (
         </li>
         <li className="nav-item">
           <Link to="/" className="nav-link">
-            Contact Us
+            Lets Talk
           </Link>
         </li>
       </ul>

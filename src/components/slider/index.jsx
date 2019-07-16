@@ -24,14 +24,15 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
-function Slider ({subTitle, headingTitle, headingTitles}) {
+function Slider ({subTitle, headingTitle, headingTitles = []}) {
 
   let pos = 0
   
-  const [heading, setHeading] = useState()
   if (headingTitle && headingTitle.length) {
-    setHeading(headingTitle)
+    headingTitles.push(headingTitle)
   }
+  
+  const [heading, setHeading] = useState(headingTitles[0])
   
   if (headingTitles && headingTitles.length) {
     useInterval(() => {
