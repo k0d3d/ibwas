@@ -1,16 +1,47 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import "./animation.css";
-@import "../components/layout.css";
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,900&display=swap');
+
+html {font-size: 16px;}
 
 body {
-  font-family: "Poppins", sans-serif;
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
 }
+
+p {margin-bottom: 1.25em;}
+
+
+h1, h2, h3, h4, h5 {
+  margin: 2.75rem 0 1rem;
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 7.594em;
+}
+
+h2 {font-size: 5.063em;}
+
+h3 {font-size: 3.375em;}
+
+h4 {font-size: 2.25em;}
+
+h5 {font-size: 1.5em;}
+h6 {font-size: 1.2em;}
+
+small, .text_small {font-size: 0.667em;}
 
 section {
   min-height: 80vh;
 }
-
-
 
 .slant {
     padding: 3em;

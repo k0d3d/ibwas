@@ -9,7 +9,7 @@ export const BlogStorySection = () => {
       {`
         .section {
           background: #b6b9ff4a;
-          border-radius: 20px 20px 0;
+          border-radius: 20px 20px 0 0;
         }
         .media {
           img {
@@ -21,12 +21,12 @@ export const BlogStorySection = () => {
         }
       `}
     </style>
-    <section className="section mt-5 mb-5">
+    <section className="section mt-5 mb-0">
       <div className="section-content mt-3 p-5">
         <h3 className="text-left">Stories</h3>
-        <h4 className="mt-0 mb-5 text-left">
+        <h6 className="mt-0 mb-5 text-left">
           Read stories about the furniture and wood industry.
-        </h4>
+        </h6>
         <div className="row">
           <div className="col-md-10">
             <div className="media">

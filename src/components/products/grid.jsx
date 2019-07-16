@@ -7,7 +7,7 @@ const grid = () => {
     graphql`
       query{
         swapi {
-          products {
+          products(first: 15) {
             nodes {
               id
               productId
@@ -32,7 +32,7 @@ const grid = () => {
           .section-content {
             z-index: 3;
             position: relative;
-            h3, h4 {
+            h3, h4, h6 {
               width: 70%;
               text-align: center;
               margin-left: auto;
@@ -42,15 +42,31 @@ const grid = () => {
           
           .card {
             border: none;
+            min-width: 288px;
+            min-height: 288px;
+            overflow: hidden;
+            &:hover {
+              background-color: #f2f2f2
+            }
             &:hover .order-btn {
               transform: translateX(1px);
               opacity: 1
             }
+            &:hover .card-img-top {
+              transform: scale(1.525) translate(65px, 77px);
+            }
+          }
+
+          .card-img-top {
+            transform: scale(0.8);
+            transition: transform 250ms ease-in-out, scale 250ms ease-in-out;
+            position: relative;
+            z-index: 10;
           }
 
           .card-title {
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: normal;
             margin: 0 auto;
           }
           .card-text {
@@ -58,7 +74,10 @@ const grid = () => {
           }
           .card-body {
             position: relative;
+            z-index: 14;
+            background: white;
           }
+
           .order-btn {
             right: 0px;
             position: absolute;
@@ -73,14 +92,19 @@ const grid = () => {
       </style>
       <section className="section mt-5">
         <div className="section-content pt-5">
-          <h2 className="section-title">
-            More Products
-          </h2>
+          <h3 className="section-title">
+            Order our products
+          </h3>
+          <h6 className="text-center">
+            Select the right board from our extensive list or browse through the gallery and find 
+            the right type of wood board for your furniture. 
+          </h6>
+
           <div className="row">
               {
                 swapi.products.nodes.map(product => (
                   <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
-                    <div className="card" style={{width: "18rem"}}>
+                    <div className="card">
                       <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
                       <div className="card-body">
                         <h5 className="card-title">{product.name}</h5>

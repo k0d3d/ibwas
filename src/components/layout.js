@@ -13,6 +13,8 @@ import Header from "./header"
 import Footer from './footer'
 import SEO from "./seo";
 
+import { NewsletterSection } from './home/newsletter-section'
+
 import "../styles/custom.scss"
 
 const Layout = ({ children }) => {
@@ -33,6 +35,7 @@ const Layout = ({ children }) => {
       <main>
           {children}
       </main>
+      <NewsletterSection />
       <Footer />
     </>
   )

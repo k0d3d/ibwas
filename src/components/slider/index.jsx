@@ -24,7 +24,7 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
-function Slider ({subTitle, headingTitle, headingTitles = []}) {
+function Slider ({subTitle, headingTitle, headingTitles = [], slant = true}) {
 
   let pos = 0
   
@@ -47,7 +47,7 @@ function Slider ({subTitle, headingTitle, headingTitles = []}) {
 
     .carousel {
       background: linear-gradient(177deg, rgba(28, 35, 218, 0.68) 38.9%, rgba(151, 155, 238, 0.756518) 72.91%, rgba(255, 255, 255, 0) 100%), url(../../images/bedroom-door-entrance-271639.jpg), rgba(28, 36, 218, 0.69);
-      clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+    clip-path: ${slant && 'polygon(0 0, 100% 0, 100% 70%, 0% 100%)'};
       width: 100vw;
       height: 676px;
       background-size: cover, cover;
@@ -67,7 +67,7 @@ function Slider ({subTitle, headingTitle, headingTitles = []}) {
     }
     
     aside p {
-      font-size: 22px;
+      font-size: 32px;
     }
     .icon-figure {
       display: none;
@@ -127,7 +127,14 @@ function Slider ({subTitle, headingTitle, headingTitles = []}) {
 Slider.propTypes = {
   headingTitles: PropTypes.array,
   headingTitle: PropTypes.string,
-  subTitle: PropTypes.string
+  subTitle: PropTypes.string,
+  slant: PropTypes.bool
+}
+
+
+
+Slider.defaultProps = {
+  slant: true
 }
 
 export default Slider

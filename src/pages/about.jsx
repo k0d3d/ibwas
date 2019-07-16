@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import Slider from "../components/slider/index"
-import { NewsletterSection, BlogStorySection, TestimonalSection } from '../components/home'
+import { BlogStorySection, TestimonalSection } from '../components/home'
 import { MidSection, StorySection, MoreAboutSection } from '../components/about/index'
 
 import SEO from "../components/seo"
@@ -24,7 +24,6 @@ class IndexPage extends React.Component {
           <MoreAboutSection />
           <TestimonalSection />
           <BlogStorySection />
-          <NewsletterSection />
         </div>
       </Layout>
     );

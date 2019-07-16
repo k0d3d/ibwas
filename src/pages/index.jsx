@@ -6,7 +6,6 @@ import {
   Midsection, 
   EasyOrder, 
   ExploreProducts, 
-  NewsletterSection, 
   BlogStorySection, 
   TestimonalSection 
 } from '../components/home/index'
@@ -27,7 +26,6 @@ class IndexPage extends React.Component {
           <ExploreProducts />
           <TestimonalSection />
           <BlogStorySection />
-          <NewsletterSection />
         </div> 
       </Layout>
     );

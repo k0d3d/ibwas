@@ -22,8 +22,18 @@ const style = {
   }
 }
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
 <div className="container">
+  <style jsx>{`
+    
+      .nav-link.active::before {
+        width: 150px;
+        height: 50px;
+        background-color: #f48383;
+        position: relative;
+      }
+  `}
+  </style>
   <nav className="navbar navbar-expand-lg navbar-light" style={style.nav}>
     <Link className="navbar-brand" to="/">
       <img style={style.logo} src={logo} className="d-inline-block align-top" alt="" />
@@ -37,7 +47,7 @@ const Header = ({ siteTitle }) => (
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
-          <Link className="nav-link" to="/products" style={style.redText}>
+          <Link className="nav-link" to="/products" style={style.redText} activeClassName="active">
             Order Products <span className="sr-only">(current)</span>
 
           </Link>
@@ -45,16 +55,16 @@ const Header = ({ siteTitle }) => (
       </ul>
       <ul className="navbar-nav float-right">
         <li className="nav-item">
-          <Link to="/about" className="nav-link">About Us</Link>
+          <Link to="/about" className="nav-link" activeClassName="active">About Us</Link>
         </li>
         <li className="nav-item">
-          <Link to="/" className="nav-link">
+          <Link to="/" className="nav-link" activeClassName="active">
             Stories
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/" className="nav-link">
-            Lets Talk
+          <Link to="/contact" className="nav-link">
+            Contact
           </Link>
         </li>
       </ul>

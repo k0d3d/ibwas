@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from "../components/layout"
 import Slider from "../components/slider/index"
 import { 
-  NewsletterSection, 
   BlogStorySection, 
 } from '../components/home/index'
 
@@ -33,7 +32,6 @@ const products = () => {
     <div className="container">
       <Grid />
       <BlogStorySection />
-      <NewsletterSection /> 
     </div> 
    
   </Layout>    
