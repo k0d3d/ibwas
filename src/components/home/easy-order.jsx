@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
@@ -29,6 +29,27 @@ export const EasyOrder = () => {
       }
     `
   )  
+    
+  const [isVisible, setBoxVisibility] = useState(false)
+
+  function onIntersection(entries, observer) {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        // debugger
+        setBoxVisibility(true)
+        observer.unobserve(entry.target)
+      }
+    }
+
+  }
+
+  const observer = new IntersectionObserver(onIntersection, { threshhold: 0.35, rootMargin: "-300px" });
+  useEffect(() => {
+    const targets = document.querySelector('.slant h3')
+    observer.observe(targets)
+  })
+
+
   return (
     <>
     <style jsx>{`
@@ -36,11 +57,27 @@ export const EasyOrder = () => {
           .light-grey {
             background-color: $bgc;
           }
-          
+
+          @keyframes swing-in-top-fwd {
+            0% {
+              -webkit-transform: rotateX(-100deg);
+                      transform: rotateX(-100deg);
+              -webkit-transform-origin: top;
+                      transform-origin: top;
+              opacity: 0;
+            }
+            100% {
+              -webkit-transform: rotateX(0deg);
+                      transform: rotateX(0deg);
+              -webkit-transform-origin: top;
+                      transform-origin: top;
+              opacity: 1;
+            }
+          }
+                    
           .slant {
             top: 0;
             margin-top: -12px;
-            z-index: -1;
             position: relative;
             .angled {
               height: 200px;
@@ -59,22 +96,47 @@ export const EasyOrder = () => {
               background: linear-gradient(to bottom,  #1c24da 2%, rgb(244, 244, 244) 3%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
               filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c24da', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
             }
-            .section-content {
-              z-index: 3;
-              position: relative;
-              h3, h4 {
-                width: 70%;
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
+            @mixin cardtransition{
+              @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                  opacity: 1;
+                  animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) #{$i * .3}s both;
+                }
               }
+            }
+            .section-content.isVisible {
+              & .card {
+                @include cardtransition
+              }
+            }
+            h5 {
+              margin-top: 0;
             }
             .card {
               width: 292px;
               height: 372px;
+              overflow: hidden;
+              opacity: 0;
               &:hover {
-                background: #ffffff;
-                box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.25);
+                background-color: #004ae9;
+                background-image: linear-gradient(160deg, #004ae9 0%, #80D0C7 100%);
+                box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.55);
+                border: none;
+                transition: box-shadow 200ms ease-in;
+                & .card-body {
+                  transform: translateY(-35%);
+                  transition: transform 280ms ease-in-out;
+                  color: white
+                }
+                & .btn-link {
+                  color: black;
+                  background: white;
+                  padding: 2px 7px 2px 2px;
+                  border-radius: 25px;
+                  transform: translateY(10px);
+                  transition: transfrom 250ms;
+                  transition-delay: 300ms;
+                }
               }
             }
             .card-title {
@@ -99,11 +161,11 @@ export const EasyOrder = () => {
 
       <section className="light-grey slant">
         <div className="angled"></div>
-        <div className="section-content">
+        <div className={`section-content ${isVisible && 'isVisible'}`}>
           <h3>Easiest way to buy</h3>
-          <h4 className="mt-0 mb-5">
+          <h6 className="mt-0 mb-5">
             We have stores packed with the finest wood finishes that will make your project stand out from the crowd.
-          </h4>
+          </h6>
 
           <div className="d-flex flex-row justify-content-around">
             {

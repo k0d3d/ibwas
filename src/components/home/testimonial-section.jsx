@@ -80,9 +80,9 @@ export const TestimonalSection = () => {
       <section className="section grid-container mt-5 mb-5">
         <div className="section-content mt-3 pt-5">        
           <h3 className="text-center">Testimonials</h3>
-          <h4 className="mt-0 mb-5 text-center">
+          <h6 className="mt-0 mb-5 text-center">
             Happy customers who share their stories
-          </h4>
+          </h6>
           <div className="row pointed-shadow">
             <div className="col-md-12">
               <div className="content-box mx-auto">

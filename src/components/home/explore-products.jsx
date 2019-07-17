@@ -15,22 +15,14 @@ export const ExploreProducts = () => (
           width: 240px;
           height: auto;
         }
-        .section-content {
-            h3, h4 {
-              width: 70%;
-              text-align: center;
-              margin-left: auto;
-              margin-right: auto;
-            }
-          }
       `}
     </style>
     <section className="section pt-5">
       <div className="section-content pt-5 mb-5">
             <h3>Explore our products</h3>
-            <h4 className="mt-0 mb-5">
+            <h6 className="mt-0 mb-5">
               Do you have an idea in mind and are you looking for the right wood ?
-            </h4>
+            </h6>
             <div className="d-flex flex-row justify-content-around">
               <div className="text-center timg">
                 <img className="rounded mx-auto d-block" src={img1} alt="cabinets" />
