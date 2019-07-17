@@ -19,20 +19,24 @@ export const NewsletterSection = () => {
         </div>
         <div className="container">
           <div className="col flow">
-            <div>3552 Murphy Court, Building 77<br />Surabaya, East Java 60217</div>
+            <div>43 Palm Avenue<br />Mushin Lagos <br/> 08094625346, 09082568008, 08180100957, 09014316425</div>
+            <div className="mt-3">
+              10 Shop 45, <br /> Amu Timber Market, <br />Olorunshogo, Mushin, <br />Lagos
+            </div>
           </div>
           <div className="col flex flex-width-700">
             <div className="footer-nav-block flex xs-12">
-              <div className="footer-menu-list"><a href="#" className="footer-link-item">Contact Us</a></div>
-              <div className="footer-menu-list"><a href="#" className="footer-link-item">Term of Use</a></div>
-              <div className="footer-menu-list"><a href="#" className="footer-link-item">Privacy</a></div>
-              <div className="footer-menu-list"><a href="#" className="footer-link-item">Environmental Policy</a></div>
+              <div>
+                Along Diedie Timber Shade,<br /> Deidei,  Abuja, <br />Opposite Bestman Furniture. <br />09082568008
+              </div>
+              <div className="mt-3">
+                Kilometer 53, Epe Expressway, <br /> Ibeju Lekki, <br /> Lagos State.
+              </div>
             </div>
             <div className="footer-nav-block flex xs-12">
-              <div className="footer-menu-list"><a href="#" className="footer-link-item">Industry</a></div>
-              <div className="footer-menu-list"><a href="#" className="footer-link-item">Consulting Services</a></div>
-              <div className="footer-menu-list"><a href="#" className="footer-link-item">Insight</a></div>
-              <div className="footer-menu-list"><a href="#" className="footer-link-item">Resources</a></div>
+              <div>
+                13 Odo Eran Plank Market, <br /> Ogba, Ikeja, <br /> Lagos State.
+              </div>
             </div>
             <div className="footer-nav-block flex xs-12">
               <div className="footer-menu-list"><a href="#" className="footer-link-item">Facebook</a></div>

@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const grid = () => {
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const {swapi} = useStaticQuery(
     graphql`
       query{
@@ -46,20 +47,25 @@ const grid = () => {
             min-height: 288px;
             overflow: hidden;
             &:hover {
-              background-color: #f2f2f2
+              background-color: #f2f2f2;
+              box-shadow:rgb(255, 255, 255) 0px 0px 30px 40px inset;
+              transition: box-shadow 350ms;
+              
+              box-sizing: border-box;
             }
             &:hover .order-btn {
               transform: translateX(1px);
-              opacity: 1
+              opacity: 1;
+              transition: transform 250ms ease-in-out;
             }
             &:hover .card-img-top {
               transform: scale(1.525) translate(65px, 77px);
+              transition: transform 250ms ease-in-out;
             }
           }
 
           .card-img-top {
             transform: scale(0.8);
-            transition: transform 250ms ease-in-out, scale 250ms ease-in-out;
             position: relative;
             z-index: 10;
           }
