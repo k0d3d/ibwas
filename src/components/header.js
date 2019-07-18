@@ -8,9 +8,6 @@ import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 import logo from '../images/logo.png'
 
 const style = {
-  nav: {
-    height: "75px"
-  },
   logo: {
     height: "70px"
   },
@@ -34,9 +31,11 @@ const Header = () => (
       }
   `}
   </style>
-  <nav className="navbar navbar-expand-lg navbar-light" style={style.nav}>
+  <nav className="navbar navbar-expand-lg navbar-light" >
     <Link className="navbar-brand" to="/">
-      <img style={style.logo} src={logo} className="d-inline-block align-top" alt="" />
+      <span>
+        <img src={logo} className="d-inline-block align-top" alt="" />
+      </span>
     </Link>
 
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -2,6 +2,7 @@
 @import "./animation.css";
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,900&display=swap');
+@import 'queries';
 
 html {font-size: 16px;}
 
@@ -49,27 +50,48 @@ section {
 }
 .section-content {
     
-    h3 {
-      font-weight: bold;
-    }
-    h3 {
-      font-size: 4em;
-    }
-    h4 {
-      color: grey;
-    }
-    z-index: 3;
-    position: relative;
-    h3, h4, h6 {
-      width: 70%;
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 0;
-    }
+  h3 {
+    font-weight: bold;
   }
+  h3 {
+    font-size: 4em;
+  }
+  h4 {
+    color: grey;
+  }
+  z-index: 3;
+  position: relative;
+  h3, h4, h6 {
+    width: 70%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+  }
+}
 
-@media (min-width: 992px) {
+@include respond-below(sm) {
+
+  .navbar {
+    position: fixed;
+    z-index: 1;
+  }
+  .navbar-brand span {
+    width: 80px;
+    height: 80px;
+    background: white;
+    display: inline-block;
+    border-radius: 60px;
+    padding: 1px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .navbar-brand img {
+    height: 60px;
+  }  
+}
+
+@include respond-below(sm) {
   .navbar-expand-lg .navbar-nav .nav-link {
     font-size: 18px;
     padding-left: 0.8em;

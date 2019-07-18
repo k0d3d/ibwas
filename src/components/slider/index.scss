@@ -1,53 +1,93 @@
-.carousel {
-  background: linear-gradient(177deg, rgba(28, 35, 218, 0.68) 38.9%, rgba(151, 155, 238, 0.756518) 72.91%, rgba(255, 255, 255, 0) 100%), url(../../images/bedroom-door-entrance-271639.jpg), rgba(28, 36, 218, 0.69);
-  clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
-  width: 100vw;
-  height: 676px;
-  background-size: cover, cover;
-  color: #e8e8e8;
-}
-
-aside {
-  width: 50%;
-  position: relative;
-  margin-top: 80px;
-}
-
-aside h1 {
-  font-weight: bold;
-  font-size: 66px;
-  line-height: 112.5%;
-}
-
-aside p {
-  font-size: 22px;
-}
-.icon-figure {
-  display: none;
-}
+@import '../../styles/queries';
 
 
+#coded-slider {
 
-@media (min-width: 320px) and (max-width: 480px)  {
   aside {
-    width: 73vw;
-    margin-top: 15%;
+    width: 50%;
+    position: relative;
+    margin-top: 80px;
   }
+  
   aside h1 {
-    font-size: 42px;
+    font-weight: bold;
+    font-size: 66px;
+    line-height: 112.5%;
   }
-  .carousel {
-    background-position: center, top right;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .d-flex {
-    justify-content: center;
-    text-align: center;
+  
+  aside p {
+    font-size: 32px;
   }
   .icon-figure {
-    display: block;
-    top: 42px;
-    position: relative;
+    display: none;
+  }
+  .scroll-link {
+    position: absolute;
+    bottom: 50%;
+    left: 95%;
+    transform: translateX(-50%);
+  }
+  .mouse {
+    max-width: 2.5rem;
+    width: 100%;
+    height: auto;
+  }
+  .scroll {
+    animation-name: scroll;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.650, -0.550, 0.250, 1.500);
+    animation-iteration-count: infinite;
+    transform-origin: 50% 20.5px;
+    will-change: transform;
+  }    
+
+}
+@include respond-below(sm) {
+
+  #coded-slider {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+
+    aside {
+      width: 77vw;
+      text-align: center;
+      margin: 50% auto;
+    }
+    aside h1 {
+      font-size: 32px;
+    }
+
+    aside p {
+      font-size: 1.2rem;
+    }
+
+    .d-flex {
+      justify-content: center;
+      text-align: center;
+    }
+    .icon-figure {
+      display: block;
+      top: 42px;
+      position: relative;
+    }
+    .scroll-link {
+      position: absolute;
+      bottom: 65px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@keyframes scroll {
+  0%, 20% {
+  transform: translateY(0) scaleY(1);
+  }
+  10% {
+  opacity: 1;
+  }
+  100% {
+  transform: translateY(36px) scaleY(2);
+  opacity: 0.01;
   }
 }

@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
 
+import './index.scss'
+
 import backgroundImageSource from '../../images/bedroom-door-entrance-271639.jpg'
 
 function useInterval(callback, delay) {
@@ -50,83 +52,13 @@ function Slider ({subTitle, headingTitle, headingTitles = [], slant = true}) {
       height: 676px;
       background-size: cover, cover;
       color: #e8e8e8;
+      background-position: center, top right;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
     
-    aside {
-      width: 50%;
-      position: relative;
-      margin-top: 80px;
-    }
-    
-    aside h1 {
-      font-weight: bold;
-      font-size: 66px;
-      line-height: 112.5%;
-    }
-    
-    aside p {
-      font-size: 32px;
-    }
-    .icon-figure {
-      display: none;
-    }
-    .scroll-link {
-      position: absolute;
-      bottom: 50%;
-      left: 95%;
-      transform: translateX(-50%);
-    }
-    .mouse {
-      max-width: 2.5rem;
-      width: 100%;
-      height: auto;
-    }
-    .scroll {
-      animation-name: scroll;
-      animation-duration: 1.5s;
-      animation-timing-function: cubic-bezier(0.650, -0.550, 0.250, 1.500);
-      animation-iteration-count: infinite;
-      transform-origin: 50% 20.5px;
-      will-change: transform;
-    }    
-    @keyframes scroll {
-      0%, 20% {
-      transform: translateY(0) scaleY(1);
-      }
-      10% {
-      opacity: 1;
-      }
-      100% {
-      transform: translateY(36px) scaleY(2);
-      opacity: 0.01;
-      }
-    }
-        
-    @media (min-width: 320px) and (max-width: 480px)  {
-      aside {
-        width: 73vw;
-        margin-top: 15%;
-      }
-      aside h1 {
-        font-size: 42px;
-      }
-      .carousel {
-        background-position: center, top right;
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-      .d-flex {
-        justify-content: center;
-        text-align: center;
-      }
-      .icon-figure {
-        display: block;
-        top: 42px;
-        position: relative;
-      }
-    }
     `}</style>
-    <div className="carousel slide" data-ride="carousel">
+    <div id="coded-slider" className="carousel slide" data-ride="carousel">
       <div className="carousel-inner">
           <div className="carousel-item active">
               <div className="container">
@@ -149,11 +81,7 @@ function Slider ({subTitle, headingTitle, headingTitles = [], slant = true}) {
           <circle className="scroll" cx="36.5" cy="31.5" r="4.5" fill="#FFF"/>
           </g>
         </svg>
-        <div className="d-flex flex-row">
-            <figure className="icon-figure">
-                <FontAwesomeIcon icon={faAngleDoubleDown} size="2x" />
-            </figure>
-        </div>
+
       </div>
     </div>
 </section> 

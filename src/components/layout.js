@@ -16,6 +16,7 @@ import SEO from "./seo";
 import { NewsletterSection } from './home/newsletter-section'
 
 import "../styles/custom.scss"
+import "./layout.scss"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
