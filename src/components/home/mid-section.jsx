@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import img1 from '../../images/apartment-bedroom-drawers-879821.jpg'
 import img2 from '../../images/apartment-door-door-handle-16515.jpg'
 
-import './layout.scss'
+import './mid-section.scss'
 
 export const Midsection = () => {
 
@@ -42,13 +42,13 @@ export const Midsection = () => {
       </style>
       <section id="mid-section" className="section grid-container">
         <div className={`card-box ${isVisible && 'isVisible'}`}>
-          <div className={`card card1`}>
+          <div className={`card card1`} data-aos="fade-up">
             <img src={img1} alt="bedroom-wood" />
           </div>
-          <div className="card card2">
+          <div className="card card2" data-aos="fade-up">
             <img src={img2} alt="bedroom-wood-2" />
           </div>
-          <div className="card card3 shadow-card">
+          <div className="card card3 shadow-card" data-aos="fade-up">
             <div className="card-body">
               <h3 className="card-title">
                 For every purpose

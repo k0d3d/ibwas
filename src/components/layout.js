@@ -13,12 +13,18 @@ import Header from "./header"
 import Footer from './footer'
 import SEO from "./seo";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import { NewsletterSection } from './home/newsletter-section'
 
 import "../styles/custom.scss"
 import "./layout.scss"
 
 const Layout = ({ children }) => {
+  AOS.init({
+    once: true
+  });
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {

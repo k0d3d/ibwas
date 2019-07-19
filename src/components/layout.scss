@@ -1,12 +1,15 @@
-.navbar-brand img{
-  height: "70px";
-}
+@import '../styles/queries';
+
+
 .navbar {
-  height: 100px;
-  width: 100vw;
+  height: 80px;
   margin: 0;
   padding: 0;
 }
+.navbar-brand img{
+  height: 70px;
+}
+
 .navbar-light .navbar-toggler {
   margin-right: 38px;
   border-radius: 50%;
@@ -15,4 +18,13 @@
   padding: 10px;
   width: 42px;
   height: 42px;
+}
+
+@include respond-below(sm) {
+  .navbar {
+    height: 100px;
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+  }
 }

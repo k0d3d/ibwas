@@ -14,31 +14,34 @@ body {
   color: #333;
 }
 
-p {margin-bottom: 1.25em;}
-
+p {
+  margin-bottom: 1.25em;
+  font-family: 'Poppins', sans-serif;
+}
 
 h1, h2, h3, h4, h5 {
   margin: 2.75rem 0 1rem;
   font-family: 'Gothic A1', sans-serif;
-  font-weight: 900;
+  font-weight: 400;
   line-height: 1.15;
 }
 
 h1 {
   margin-top: 0;
-  font-size: 7.594em;
+  font-size: 4.209em;
 }
 
-h2 {font-size: 5.063em;}
+h2 {font-size: 3.157em;}
 
-h3 {font-size: 3.375em;}
+h3 {font-size: 2.369em;}
 
-h4 {font-size: 2.25em;}
+h4 {font-size: 1.777em;}
 
-h5 {font-size: 1.5em;}
+h5 {font-size: 1.333em;}
+
 h6 {font-size: 1.2em;}
 
-small, .text_small {font-size: 0.667em;}
+small, .text_small {font-size: 0.75em;}
 
 section {
   min-height: 80vh;
@@ -54,7 +57,7 @@ section {
     font-weight: bold;
   }
   h3 {
-    font-size: 4em;
+    font-size: 4rem;
   }
   h4 {
     color: grey;
@@ -89,13 +92,25 @@ section {
   .navbar-brand img {
     height: 60px;
   }  
-}
-
-@include respond-below(sm) {
   .navbar-expand-lg .navbar-nav .nav-link {
     font-size: 18px;
     padding-left: 0.8em;
     padding-right: 0.8em;
     color: black;
   }
+  .section-content {
+    h3 {
+      font-size: 2.8rem;
+    }
+    h3, h4, h6 {
+      width: 90%;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 70px;
+    }
+  }
+}
+
+@include respond-below(sm) {
 }
