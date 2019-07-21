@@ -48,13 +48,13 @@ export function MoreAboutSection () {
           <p className="text-center">
             <img src={moreImg} alt="the room and wood"/>
           </p>  
-          <aside className="side-text">
+          <aside className="side-text" data-aos="fade-right">
             <p>
               Beautiful furniture should also be strong and timeless, passed on from one generation to the next.
             </p>
           </aside>
 
-          <aside className="side-text">
+          <aside className="side-text" data-aos="fade-left">
             <p>
               We want to ensure your home and office furniture is built with the best quality wood materials.
             </p>

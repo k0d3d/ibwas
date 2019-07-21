@@ -11,8 +11,10 @@ export const TestimonalSection = () => {
   return (
     <>
       <style jsx>{`
-
-        `}
+        .section {
+          margin-top: 80px;
+        }
+      `}
       </style>
       <section id="testimonial" className="section grid-container mt-5 mb-5">
         <div className="section-content mt-3 pt-5">        

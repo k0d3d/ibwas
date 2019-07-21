@@ -5,6 +5,8 @@ import img1 from "./1.jpg"
 import img2 from './2.jpg'
 import img3 from './3.jpg'
 
+import './about.scss'
+
 export function MidSection () {
   const {swapi} = useStaticQuery(
     graphql`
@@ -30,21 +32,14 @@ export function MidSection () {
               margin: 0 10px;
             }
           }     
-          .block-quote {
-            font-size: 36px;
-            line-height: 42px;
-            text-align: center;
-            width: 72%;
-            margin: 4em auto;
-
-            color: #000000;
-          }   
+ 
         `}
       </style>
-      <section className="section pt-5">
+      <section id="mid-section" className="section pt-5">
         <div className="section-content pt-5 mb-5">
           <div className="row">
-            <div className="img-group">
+            <img src="gallery/24.jpg" alt="classic-room" className="d-xs-img" />
+            <div className="img-group d-md-img">
               <img src={img3} alt="bed3" />
               <img src={img1} alt="bed1" />
               <img src={img2} alt="bed2" />

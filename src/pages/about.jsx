@@ -17,7 +17,7 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <SEO title="Home" />
-        <Slider subTitle={this.subTitle} headingTitle={this.headingTitle} />
+        <Slider subTitle={this.subTitle} headingTitle={this.headingTitle} theme="about" />
         <div className="container">
           <MidSection />
           <StorySection />

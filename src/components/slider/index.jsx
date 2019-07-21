@@ -27,7 +27,17 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
-function Slider ({subTitle, headingTitle, headingTitles = [], slant = true}) {
+const themes = {
+  default: {
+    image: backgroundImageSource
+  },
+  about: {
+    image: 'gallery/9.jpg',
+    video: 'vidbw2.mp4'
+  }
+}
+
+function Slider ({subTitle, headingTitle, headingTitles = [], slant = true, theme="default"}) {
 
   if (headingTitle && headingTitle.length) {
     headingTitles.push(headingTitle)
@@ -40,13 +50,15 @@ function Slider ({subTitle, headingTitle, headingTitles = [], slant = true}) {
     ++pos
     setHeading(headingTitles[pos % headingTitles.length])
   }, 3000)
+
+  let defaultImage = themes[theme].image
     
 
   return <section>
   <style jsx>{`
 
     .carousel {
-      background: linear-gradient(177deg, rgba(28, 35, 218, 0.68) 38.9%, rgba(151, 155, 238, 0.756518) 72.91%, rgba(255, 255, 255, 0) 100%), url(${backgroundImageSource}), rgba(28, 36, 218, 0.69);
+      background: linear-gradient(177deg, rgba(28, 35, 218, 0.68) 38.9%, rgba(151, 155, 238, 0.756518) 72.91%, rgba(255, 255, 255, 0) 100%), url(${defaultImage}), rgba(28, 36, 218, 0.69);
       clip-path: ${slant && 'polygon(0 0, 100% 0, 100% 70%, 0% 100%)'};
       width: 100vw;
       height: 676px;
@@ -91,6 +103,7 @@ Slider.propTypes = {
   headingTitles: PropTypes.array,
   headingTitle: PropTypes.string,
   subTitle: PropTypes.string,
+  theme: PropTypes.string,
   slant: PropTypes.bool
 }
 

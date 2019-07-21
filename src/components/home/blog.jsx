@@ -2,35 +2,22 @@ import React from 'react';
 
 import blogImg from '../../images/blogimg.jpg'
 
-export const BlogStorySection = () => {
+import './blog.scss'
+
+export function BlogStorySection () {
   return (
   <>
-    <style jsx>
-      {`
-        .section {
-          background: #b6b9ff4a;
-          border-radius: 20px 20px 0 0;
-        }
-        .media {
-          img {
-            width: 300px;
-          }
-          .card-title {
-            font-size: 2.5em;
-          }
-        }
-      `}
-    </style>
-    <section className="section mt-5 mb-0">
-      <div className="section-content mt-3 p-5">
-        <h3 className="text-left">Stories</h3>
-        <h6 className="mt-0 mb-5 text-left">
+
+    <section id="blog-section" className="section mt-5 mb-0">
+      <div className="section-content">
+        <h3 className="text-left full-title">Stories</h3>
+        <h6 className="mt-0 mb-3 text-left full-title">
           Read stories about the furniture and wood industry.
         </h6>
         <div className="row">
           <div className="col-md-10">
             <div className="media">
-              <img src={blogImg} className="mr-3" alt="" />
+              <img src={blogImg} className="img-responsive" alt="" />
               <div className="media-body align-self-center">
                 <h5 className="mt-0 card-title">
                   How to make 3D printed wood
