@@ -1,0 +1,57 @@
+@import '../../styles/queries';
+@import '../../styles/colors';
+
+
+#explore-products {
+  .section {
+    background-color: #DFDBE5;
+    background-image: url("../../images/papyrus.png");
+  }
+  .bn {
+    perspective: 20em;
+    perspective-origin: top;
+  }
+  .timg {
+    padding: 1em;
+    img {
+      width: 240px;
+      height: auto;
+      box-shadow: 0 -5px 19px #b8b8b88f;
+      transform: rotateX(-2deg);
+      transition: box-shadow 250ms, transform 300ms ease-out;
+      &:hover {
+        box-shadow: none;
+        transform: rotateX(0deg);
+        transition: box-shadow 250ms, transform 300ms;
+      }
+    }
+    .btn {
+      box-shadow: 0 2px 3px darken(#d1d1d1, 2%);
+      &:hover {
+        box-shadow: none;
+        transition: box-shadow;
+      }
+    }
+  }
+  .caption {
+    font-weight: bold;
+  }
+  .btn-link {
+    margin-top: 1em;
+    border: solid 1px #d6d6d6a3;
+    border-radius: 50px;
+    color: $main-color;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+@include respond-below(sm) {
+  #explore-products {
+
+    .timg img {
+      width: 100%;
+    }
+  }
+}

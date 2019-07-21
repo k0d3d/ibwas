@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Gothic+A1:400,900&display=swap');
 @import 'queries';
+@import 'colors';
 
 html {font-size: 16px;}
 
@@ -47,10 +48,7 @@ section {
   min-height: 80vh;
 }
 
-.slant {
-    padding: 3em;
-    margin-top: -203px;
-}
+
 .section-content {
     
   h3 {
@@ -72,7 +70,21 @@ section {
     margin-top: 0;
   }
 }
+.main-color {
+  color: $main-color !important;
+}
 
+.main-color-bg {
+  background-color: $main-color !important;
+}
+
+.sub-color {
+  color: $sub-color !important;
+}
+
+.sub-color-bg {
+  background-color: $sub-color !important;
+}
 @include respond-below(sm) {
 
   .navbar {

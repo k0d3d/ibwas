@@ -1,7 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 
 import './easy-order.scss'
 
@@ -36,8 +34,10 @@ export const EasyOrder = () => {
   return (
     <>
     <style jsx>{`
-
-        `
+        .section-content  {
+          padding-top: 5rem;
+        }
+      `
       }
     </style>
 

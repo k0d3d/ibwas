@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
           {children}
       </main>
       <NewsletterSection />
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

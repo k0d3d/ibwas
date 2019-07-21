@@ -25,7 +25,7 @@ class IndexPage extends React.Component {
           <EasyOrder />
           <ExploreProducts />
           <TestimonalSection />
-          <BlogStorySection />
+          {/* <BlogStorySection /> */}
         </div> 
       </Layout>
     );

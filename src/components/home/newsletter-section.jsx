@@ -9,7 +9,11 @@ export const NewsletterSection = () => {
       <div className="section section-footer">
         <div className="container footer-top">
           <div className="col flow">
-            <div className="heading-beta margin-bottom">Let&#39;s Talk</div><a href="mailto:hello@gresk.ninja" className="email-address">hello@gresk.ninja</a></div>
+            <div className="heading-beta margin-bottom">Let&#39;s Talk</div>
+              <a href="mailto:hello@ibwasngltd.com" className="email-address">hello@ibwasngltd.com</a>
+              <br />
+              <a href="mailto:hello@ibwasngltd.com" className="email-address">08094625346</a>
+            </div>
           <div className="col sm-12"><img src={logoWhite} alt="" style={{
             maxWidth: "50px",
             float: "right",
@@ -94,7 +98,6 @@ export const NewsletterSection = () => {
 
 .heading-beta {
   font-family: 'Gothic A1', sans-serif;
-  color: #333;
   font-size: 74px;
   line-height: 1.15;
   font-weight: 900;
@@ -114,16 +117,13 @@ export const NewsletterSection = () => {
   padding-bottom: 80px;
 }
 
-.section.section-footer {
-  padding-top: 160px;
-  background-color: rgb(128, 166, 252);
-}
+
 
 .email-address {
   border-bottom-color: rgba(0, 0, 0, 0.33);
-  color: #333;
   font-size: 23px;
   text-decoration: none;
+  color: darken(white,30%);
 }
 
 .footer-nav-block.flex {
@@ -150,7 +150,7 @@ export const NewsletterSection = () => {
   flex: 0 0 auto;
   border-bottom-style: solid;
   border-bottom-color: rgba(0, 0, 0, 0.26);
-  color: #333;
+  color: darken(white,30%);
   text-decoration: none;
 }
 
