@@ -23,7 +23,7 @@ import "./layout.scss"
 
 const Layout = ({ children }) => {
   AOS.init({
-    once: true
+    // once: true
   });
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
