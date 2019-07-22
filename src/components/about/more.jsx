@@ -1,6 +1,8 @@
 import React from 'react';
 import moreImg from './moreabout.jpg'
 
+import './about.scss'
+
 export function MoreAboutSection () {
   // const {swapi} = useStaticQuery(
   //   graphql`
@@ -25,27 +27,16 @@ export function MoreAboutSection () {
             margin-top: 100px;
             padding-top: 50px;
           }
-          .section-content{
+          .section-content {
+            height: auto;
+            min-height: 512px;
           }
-          .side-text{ 
-            position: absolute;
-            width: 450px;
-            top: 0;
-            &:nth-child(1) {}
-            &:nth-child(2) {
-              right: 0;
-              bottom: 0;
-              top: unset;
-            }
-            p {
-              font-size: 34px;
-            }
-          }
+
         `}
       </style>
-      <section className="section">
+      <section id="more-section" className="section">
         <div className="section-content">
-          <p className="text-center">
+          <p className="text-center img-c">
             <img src={moreImg} alt="the room and wood"/>
           </p>  
           <aside className="side-text" data-aos="fade-right">

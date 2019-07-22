@@ -1,5 +1,21 @@
 @import '../../styles/queries';
 
+#more-section {
+  .side-text{ 
+    position: absolute;
+    width: 450px;
+    top: 0;
+    font-size: 34px;
+    &:nth-child(1) {}
+    &:nth-child(2) {
+      right: 0;
+      bottom: 0;
+      top: unset;
+    }
+
+  }
+}
+
 #story-section {
   $sectionHeight: 600px;
   .section-content {
@@ -38,6 +54,7 @@
         font-size: 72px;
         line-height: 75px;
         color: #000000;
+        margin-top: 0;
       }
     }
   }  
@@ -62,7 +79,26 @@
 }
 
 @include respond-below(sm) {
-
+  #more-section {
+    .img-c {
+      margin: auto 0;
+      height: 240px;
+    }
+    img {
+      width: 200px;
+    }
+    .side-text{
+      font-size: 1.3em;
+      position: relative;
+      width: 100%;
+      &:nth-child(1) {
+        top: 0px;
+      }
+      &:nth-child(2) {
+        top: 0px;
+      }
+    }
+  }
   #mid-section {
     .d-md-img {
       display: none;
@@ -89,6 +125,9 @@
       }
       .txt-box {
         width: 100%;
+        h3 {
+          margin-top: 0.2em;
+        }
       }
     }
   }
