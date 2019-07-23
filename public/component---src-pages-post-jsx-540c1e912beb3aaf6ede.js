@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{160:function(n,t,a){"use strict";a.r(t);var c=a(12),e=(a(0),a(167));a(169),a(168);t.default=function(n){n.location,swapi.post.title;return Object(c.a)(e.a,null,Object(c.a)("div",{className:"container"}))}}}]);
+//# sourceMappingURL=component---src-pages-post-jsx-540c1e912beb3aaf6ede.js.map
