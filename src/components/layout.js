@@ -12,18 +12,61 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import SEO from "./seo";
 
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import { NewsletterSection } from './home/newsletter-section'
 
 import "../styles/custom.scss"
 import "./layout.scss"
+import { useEffect } from "react";
+
+
+
+// class Layout extends React.Component {
+
+//   constructor(props) {
+//     super(props);
+//     this.state = {};
+//   }
+
+
+//   componentDidMount() {
+//     // eslint-disable-next-line no-undef
+//     AOS.init({
+//       once: true
+//     });
+//   }
+
+//   render() {
+//     const data = useStaticQuery(graphql`
+//       query SiteTitleQuery {
+//         site {
+//           siteMetadata {
+//             title
+//           }
+//         }
+//       }
+//     `)
+//     return (
+//         <>
+//         <SEO title="Home" />
+//         <Header siteTitle={data.site.siteMetadata.title} />
+//         <main>
+//             {this.props.children}
+//         </main>
+//         <NewsletterSection />
+//       </>      
+//     );
+//   }
+// }
 
 const Layout = ({ children }) => {
-  AOS.init({
-    once: true
-  });
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    AOS.init({
+      once: true
+    });    
+  })
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {

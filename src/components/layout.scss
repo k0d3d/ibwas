@@ -61,7 +61,7 @@ $transition-delay: 0.05s;
 @include respond-below(sm) {
 
   main {
-    overflow-x: none;
+    overflow-x: hidden;
   }
   .navbar {
     height: 100px;

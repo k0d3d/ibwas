@@ -4,7 +4,7 @@ import React from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 
-import MenuBtn from './menu-btn'
+import MenuBtn, { menuItems } from './menu-btn'
 
 
 import logo from '../images/logo.png'
@@ -31,29 +31,17 @@ const Header = () => (
     <MenuBtn className="navbar-toggler" />
 
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav mr-auto">
-
-      </ul>
+      <ul className="navbar-nav mr-auto"></ul>
       <ul className="navbar-nav float-right">
-        <li className="nav-item">
-          <Link to="/about" className="nav-link" activeClassName="active">About Us</Link>
-        </li>
-        <li className="nav-item">
-            <Link className="nav-link" to="/products" activeClassName="active">
-              Order Products <span className="sr-only">(current)</span>
-            </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link to="/" className="nav-link" activeClassName="active">
-            Stories
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/contact" className="nav-link">
-            Contact
-          </Link>
-        </li>
+        {
+          menuItems.map(item => (            
+            <li className="nav-item" key={item.uri}>
+                <Link className="nav-link" to={item.uri} activeClassName="active">
+                  {item.label} 
+                </Link>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </nav>

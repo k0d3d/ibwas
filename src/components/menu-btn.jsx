@@ -14,12 +14,12 @@ export const menuItems = [
     label: 'About'
   },
   {
-    uri: '/stories',
-    label: 'Stories'
-  },
-  {
     uri: '/products',
     label: 'Order Products'
+  },
+  {
+    uri: '/posts',
+    label: 'Stories'
   },
   {
     uri: '/contact',

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react"
 
 import img1 from '../../images/apartment-bedroom-drawers-879821.jpg'
@@ -20,8 +21,14 @@ export const Midsection = () => {
 
   }
 
-  const observer = new IntersectionObserver(onIntersection, { threshhold: 0.35, rootMargin: "-300px" });
+
   useEffect(() => {
+    let observer
+    try {
+      observer = new window.IntersectionObserver(onIntersection, { threshhold: 0.35, rootMargin: "-300px" });
+    } catch (oError) {
+      //do nothing
+    }
     const targets = document.querySelector('.card-box')
     observer.observe(targets)
   })

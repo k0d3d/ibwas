@@ -31,6 +31,9 @@ const themes = {
   default: {
     image: backgroundImageSource
   },
+  blog: {
+    image: 'gallery/19.jpg'
+  },
   about: {
     image: 'gallery/9.jpg',
     video: 'vidbw2.mp4'
@@ -56,7 +59,14 @@ function Slider ({subTitle, headingTitle, headingTitles = [], slant = true, them
 
   return <section>
   <style jsx>{`
-
+    #coded-slider {
+      &.blog {
+        aside {
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
     .carousel {
       background: linear-gradient(177deg, rgba(28, 35, 218, 0.68) 38.9%, rgba(151, 155, 238, 0.756518) 72.91%, rgba(255, 255, 255, 0) 100%), url(${defaultImage}), rgba(28, 36, 218, 0.69);
       clip-path: ${slant && 'polygon(0 0, 100% 0, 100% 70%, 0% 100%)'};
@@ -67,10 +77,11 @@ function Slider ({subTitle, headingTitle, headingTitles = [], slant = true, them
       background-position: center, top right;
       background-size: cover;
       background-repeat: no-repeat;
+      
     }
     
     `}</style>
-    <div id="coded-slider" className="carousel slide" data-ride="carousel">
+    <div id="coded-slider" className={`carousel slide ${theme}`} data-ride="carousel">
       <div className="carousel-inner">
           <div className="carousel-item active">
               <div className="container">
