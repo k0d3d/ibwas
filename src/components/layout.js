@@ -8,6 +8,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 
 import Header from "./header"
 import SEO from "./seo";
@@ -19,6 +21,8 @@ import { NewsletterSection } from './home/newsletter-section'
 import "../styles/custom.scss"
 import "./layout.scss"
 import { useEffect } from "react";
+
+const client = new ApolloClient({ uri: 'https://ibwasngltd.com/api/graphql' });
 
 
 const Layout = ({ children }) => {
@@ -46,9 +50,11 @@ const Layout = ({ children }) => {
     <>
       <SEO title="Home" />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <main>
-          {children}
-      </main>
+      <ApolloProvider client={client}>
+        <main>
+            {children}
+        </main>
+      </ApolloProvider>
       <NewsletterSection />
     </>
   )

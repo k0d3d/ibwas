@@ -1,34 +1,32 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+
 
 import './easy-order.scss'
 
 export const EasyOrder = () => {
-  const {swapi} = useStaticQuery(
-    graphql`
-      query PAGE_SECTION {
-        swapi {          
-          pageSections(where: {
-            categoryName: "easyorder"
-          }){
-            edges {
-              node {
-                id
-                title
-                content
-                featuredImage {
-                  id
-                  sourceUrl
-                }
-              }
+  const PAGE_SECTION = gql`
+    query {
+      pageSections(
+        where: {
+          categoryName: "easyorder"
+        }
+      ){
+        edges {
+          node {
+            id
+            title
+            content
+            featuredImage {
+              id
+              sourceUrl
             }
           }
         }
       }
-    `
-  )  
-    
-
+    }
+  ` 
 
 
   return (
@@ -50,35 +48,42 @@ export const EasyOrder = () => {
           </h6>
 
           <div className="row justify-content-around">
-            {
-              swapi.pageSections.edges.map((section) => (
+            <Query query={PAGE_SECTION}>
+              {
+                ({loading, error, data}) => {
+                  if (loading) return <div>Loading...</div>;
+                  if (error) return `Error! ${error.message}`;
+                  return (
+                    data.pageSections.edges.map(
+                      (section) => (
 
-                <div className="col-md-4 col-sm-12" key={section.node.id} data-aos="zoom-out-down">
-
-                  <div className="card">
-                    <div className="card-body">
-                      <h5 className="card-title" dangerouslySetInnerHTML={{
-                          __html: section.node.title
-                        }}></h5>
-                      <div className="card-text" dangerouslySetInnerHTML={{
-                          __html: section.node.content
-                        }}>
-                      </div>
-                      <p style={{textAlign: 'right'}}>
-                      <button className="btn btn-link">
-
-                        Order now
-                      </button>
-                      </p>
-                      <div className="card-img-top">
-                        <img src={section.node.featuredImage.sourceUrl} alt={section.node.title}/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                )
-              )    
-            }
+                        <div className="col-md-4 col-sm-12" key={section.node.id} data-aos="zoom-out-down">
+                          <div className="card">
+                            <div className="card-body">
+                              <h5 className="card-title" dangerouslySetInnerHTML={{
+                                  __html: section.node.title
+                                }}></h5>
+                              <div className="card-text" dangerouslySetInnerHTML={{
+                                  __html: section.node.content
+                                }}>
+                              </div>
+                              <p style={{textAlign: 'right'}}>
+                                <button className="btn btn-link">
+                                  Order now
+                                </button>
+                              </p>
+                              <div className="card-img-top">
+                                <img src={section.node.featuredImage.sourceUrl} alt={section.node.title}/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    )
+                  )    
+                }
+              }
+            </Query>
           </div>
                 
           </div>
