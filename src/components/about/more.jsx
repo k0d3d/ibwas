@@ -4,21 +4,7 @@ import moreImg from './moreabout.jpg'
 import './about.scss'
 
 export function MoreAboutSection () {
-  // const {swapi} = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       swapi {
-  //         pageSectionBy(uri: "moreaboutibwas") {
-  //           id
-  //           title
-  //           date
-  //           uri
-  //           content
-  //         }
-  //       }
-  //     }
-  //   `
-  // )
+
   return (
     <>
       <style jsx>{`

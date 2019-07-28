@@ -1,31 +1,27 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby"
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
 
 const grid = () => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const {swapi} = useStaticQuery(
-    graphql`
+  const PRODUCTS_QUERY = gql`
       query{
-        swapi {
-          products(first: 15) {
-            nodes {
+        products(first: 15) {
+          nodes {
+            id
+            productId
+            name
+            type
+            price
+            image {
               id
-              productId
-              name
-              type
-              price
-              image {
-                id
-                sourceUrl
-              }
+              sourceUrl
             }
           }
         }
       }
-
     `
-  )
   return (
     <>
       <style jsx>
@@ -107,20 +103,28 @@ const grid = () => {
           </h6>
 
           <div className="row">
+            <Query query={PRODUCTS_QUERY}>
               {
-                swapi.products.nodes.map(product => (
-                  <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
-                    <div className="card">
-                      <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
-                      <div className="card-body">
-                        <h5 className="card-title">{product.name}</h5>
-                        <p className="card-text">{product.price}</p>
-                        <a href="#" className="btn btn-primary order-btn">Order Now</a>
+                ({loading, data}) => {
+                  if (loading) return <div>Loading...</div>;
+                  
+                  return ( 
+                    data.products.nodes.map(product => (
+                      <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
+                        <div className="card">
+                          <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
+                          <div className="card-body">
+                            <h5 className="card-title">{product.name}</h5>
+                            <p className="card-text">{product.price}</p>
+                            <a href="#" className="btn btn-primary order-btn">Order Now</a>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                ))
+                    ))
+                  )
+                }
               }
+            </Query>
              
           </div>
         </div>

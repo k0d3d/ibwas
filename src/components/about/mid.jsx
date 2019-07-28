@@ -1,5 +1,6 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby"
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
 
 import img1 from "./1.jpg"
 import img2 from './2.jpg'
@@ -8,21 +9,18 @@ import img3 from './3.jpg'
 import './about.scss'
 
 export function MidSection () {
-  const {swapi} = useStaticQuery(
-    graphql`
+  const ABOUT_QUERY = gql`
       query {
-        swapi {
-          pageSectionBy(uri: "about") {
-            id
-            title
-            date
-            uri
-            content
-          }
+        pageSectionBy(uri: "about") {
+          id
+          title
+          date
+          uri
+          content
         }
       }
     `
-  )    
+  
   return (
     <>
       <style jsx>
@@ -44,11 +42,20 @@ export function MidSection () {
               <img src={img1} alt="bed1" />
               <img src={img2} alt="bed2" />
             </div>
-            <div className="block-quote" dangerouslySetInnerHTML={{
-              __html: swapi.pageSectionBy.content
-            }}>
-
-            </div>
+            <Query query={ABOUT_QUERY}>
+              {
+                ({loading, data}) => {
+                  if (loading) return <div>Loading...</div>;
+                  return (
+                    <div className="block-quote" dangerouslySetInnerHTML={{
+                      __html: data.pageSectionBy.content
+                    }}>
+        
+                    </div>
+                  )
+                }
+              }
+            </Query>
           </div>
         </div>
       </section>

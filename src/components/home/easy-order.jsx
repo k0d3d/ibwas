@@ -50,9 +50,8 @@ export const EasyOrder = () => {
           <div className="row justify-content-around">
             <Query query={PAGE_SECTION}>
               {
-                ({loading, error, data}) => {
+                ({loading, data}) => {
                   if (loading) return <div>Loading...</div>;
-                  if (error) return `Error! ${error.message}`;
                   return (
                     data.pageSections.edges.map(
                       (section) => (

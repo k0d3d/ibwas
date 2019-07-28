@@ -1,23 +1,22 @@
 import React from 'react';
-import { useStaticQuery, graphql } from "gatsby"
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+
 import storyImg from './storyimg.jpg'
 
 export function StorySection () {
-  const {swapi} = useStaticQuery(
-    graphql`
+  const STORY_QUERY = gql`
       query {
-        swapi {
-          pageSectionBy(uri: "our-story") {
-            id
-            title
-            date
-            uri
-            content
-          }
+        pageSectionBy(uri: "our-story") {
+          id
+          title
+          date
+          uri
+          content
         }
       }
     `
-  )
+  
   return (
     <>
       <style jsx>{`
@@ -36,10 +35,21 @@ export function StorySection () {
                   <img src={storyImg} alt=""/>
                 </div>
                 <div className="txt-box">
-                  <h3 className="full-title text-left">{swapi.pageSectionBy.title}</h3>
-                  <div className="content-text" dangerouslySetInnerHTML={{
-                    __html: swapi.pageSectionBy.content
-                  }}></div>
+                  <Query query={STORY_QUERY}>
+                    {
+                      ({loading, data}) => {
+                        if (loading) return <div>Loading...</div>;
+                        return (
+                          <>
+                            <h3 className="full-title text-left">{data.pageSectionBy.title}</h3>
+                            <div className="content-text" dangerouslySetInnerHTML={{
+                              __html: data.pageSectionBy.content
+                            }}></div>
+                          </>
+                        )
+                      }
+                    }
+                  </Query>
                 </div>
           </div>
         </div>
