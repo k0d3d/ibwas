@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import PropTypes from "prop-types"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons'
+import { navigate } from 'gatsby'
 
 import './index.scss'
 
@@ -27,6 +26,10 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
+function gotoPage(url) {
+  navigate(url)
+}
+
 const themes = {
   default: {
     image: backgroundImageSource
@@ -40,7 +43,14 @@ const themes = {
   }
 }
 
-function Slider ({subTitle, headingTitle, headingTitles = [], slant = true, theme="default"}) {
+function Slider ({
+  subTitle, 
+  headingTitle, 
+  headingTitles = [], 
+  slant = true, 
+  theme="default",
+  buttons
+  }) {
 
   if (headingTitle && headingTitle.length) {
     headingTitles.push(headingTitle)
@@ -52,7 +62,7 @@ function Slider ({subTitle, headingTitle, headingTitles = [], slant = true, them
   useInterval(() => {
     ++pos
     setHeading(headingTitles[pos % headingTitles.length])
-  }, 3000)
+  }, 5000)
 
   let defaultImage = themes[theme].image
     
@@ -68,20 +78,65 @@ function Slider ({subTitle, headingTitle, headingTitles = [], slant = true, them
       }
     }
     .carousel {
-      background: linear-gradient(177deg, rgba(28, 35, 218, 0.68) 38.9%, rgba(151, 155, 238, 0.756518) 72.91%, rgba(255, 255, 255, 0) 100%), url(${defaultImage}), rgba(28, 36, 218, 0.69);
-      clip-path: ${slant && 'polygon(0 0, 100% 0, 100% 70%, 0% 100%)'};
+      clip-path: ${slant && 'polygon(0 0, 100% 0, 100% 80%, 0% 100%)'};
       width: 100vw;
       height: 676px;
-      background-size: cover, cover;
       color: #e8e8e8;
+      position: relative;
+    }
+    .grad-bg {
+      background: linear-gradient(177deg, rgba(28, 35, 218, 0.78) 38.9%, rgba(151, 155, 238, 0.556518) 72.91%, rgba(255, 255, 255, 0.4) 100%), rgba(28, 36, 218, 0.39);
+      clip-path: ${slant && 'polygon(0 0, 100% 0, 100% 80%, 0% 100%)'};
+      background-size: cover, cover;
       background-position: center, top right;
       background-size: cover;
       background-repeat: no-repeat;
-      
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      position: absolute;      
     }
-    
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+    }
+
+    button {
+      border-radius: 50px;
+    }
+
+    .hero-btn {
+      border-width: 2px;
+      border-style: solid;
+      color: #f53f3f;
+      border-color: #f53f3f80;
+      color: white;
+      background: #f53f3f;
+      box-shadow: 0 2px 12px #dc3545;
+      margin-bottom: 2px;
+      &:hover {
+        background: transparent;
+        color: #f53f3f;
+        box-shadow: none;
+      }
+    }
+
+    .slider-image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .carousel-inner {
+      postion: relative;
+      z-index: 4;
+    }
+
     `}</style>
     <div id="coded-slider" className={`carousel slide ${theme}`} data-ride="carousel">
+      <div className="grad-bg"></div>
+      <img src={defaultImage} className="slider-image kenburns-bottom-left" />
       <div className="carousel-inner">
           <div className="carousel-item active">
               <div className="container">
@@ -93,6 +148,18 @@ function Slider ({subTitle, headingTitle, headingTitles = [], slant = true, them
                           <p className="slide-in-blurred-left">
                               { subTitle } 
                           </p>
+                          {
+                            buttons && 
+                            <div className="btn-group" role="group" aria-label="Basic example">
+                            {
+                              buttons.map((btn, index) => (
+                                <button onClick={() => gotoPage(btn.url)} type="button" className={`btn ${btn.cls}`} key={`btn ${index}`}>
+                                  {btn.text}
+                                </button>
+                              ))
+                            }
+                            </div>
+                          }
                   </aside>
               </div>
           </div>
@@ -115,7 +182,8 @@ Slider.propTypes = {
   headingTitle: PropTypes.string,
   subTitle: PropTypes.string,
   theme: PropTypes.string,
-  slant: PropTypes.bool
+  slant: PropTypes.bool,
+  buttons: PropTypes.array
 }
 
 

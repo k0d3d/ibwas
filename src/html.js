@@ -24,11 +24,7 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
-        <script src="scripts/aos.js"></script> 
-        <script>
 
-          AOS.init();
-        </script>
       </body>
     </html>
   )
