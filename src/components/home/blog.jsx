@@ -1,10 +1,33 @@
 import React from 'react';
-
-import blogImg from '../../images/blogimg.jpg'
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+import { navigate, Link } from 'gatsby'
 
 import './blog.scss'
 
 export function BlogStorySection () {
+
+  const visitBlog = () => {
+    navigate('/posts')
+  }
+
+  const POST_QUERY = gql`
+    query {
+      posts(first: 1) {
+        edges {
+          node {
+            id
+            title
+            excerpt
+            date
+            featuredImage {
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  `
   return (
   <>
 
@@ -15,21 +38,43 @@ export function BlogStorySection () {
           Read stories about the furniture and wood industry.
         </h6>
         <div className="row">
-          <div className="col-md-10">
-            <div className="media">
-              <img src={blogImg} className="img-responsive" alt="" />
-              <div className="media-body align-self-center">
-                <h5 className="mt-0 card-title">
-                  How to make 3D printed wood
-                </h5>
-                <p>
-                  A few days ago, I had an amazing ephiphany while talking to a friend about the benefits of 3d printed wood supply in Africa. We were quick to point out the major challenges and the benefits.
-                </p>
-                <p>
-                  <button className="btn btn-primary btn-sm">Read more</button>
-                </p>           
-              </div>
-            </div>
+          <Query query={POST_QUERY}>
+            {
+              ({data, loading}) => {
+                if (loading) return <p>Loading...</p>
+                return (
+                  <div className="col-md-12">
+                    <div className="media">
+                      <img src={data.posts.edges[0].node.featuredImage.sourceUrl} className="img-responsive" alt="" />
+                      <div className="media-body align-self-center">
+                        <h5 className="mt-0 card-title">
+                           <Link 
+                              dangerouslySetInnerHTML={{
+                                __html: data.posts.edges[0].node.title
+                              }}
+                              to={`/post?postId=${data.posts.edges[0].node.id}`} 
+                            >
+                           </Link>
+                        </h5>
+                        <p dangerouslySetInnerHTML={{
+                          __html: data.posts.edges[0].node.excerpt
+                        }}>
+                        </p>
+        
+                      </div>
+                    </div>
+                  </div>
+                )
+              }
+            }
+
+          </Query>
+        </div>
+        <div className="row mt-5">
+          <div className="col-12">
+            <p className="text-center">
+            <button onClick={() => visitBlog()} className="btn btn-outline-primary">Load more stories</button>
+            </p>
           </div>
         </div>
       </div>

@@ -78,15 +78,14 @@ function Slider ({
       }
     }
     .carousel {
-      clip-path: ${slant && 'polygon(0 0, 100% 0, 100% 80%, 0% 100%)'};
       width: 100vw;
-      height: 676px;
+      height: 576px;
       color: #e8e8e8;
       position: relative;
+      overflow: hidden;
     }
     .grad-bg {
       background: linear-gradient(177deg, rgba(28, 35, 218, 0.78) 38.9%, rgba(151, 155, 238, 0.556518) 72.91%, rgba(255, 255, 255, 0.4) 100%), rgba(28, 36, 218, 0.39);
-      clip-path: ${slant && 'polygon(0 0, 100% 0, 100% 80%, 0% 100%)'};
       background-size: cover, cover;
       background-position: center, top right;
       background-size: cover;
