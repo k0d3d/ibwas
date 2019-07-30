@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby'
+import { Link } from '@reach/router'
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
@@ -39,10 +39,10 @@ const BlogPost = () => {
                   data.posts.edges.map(post => (
                     <div className="post-preview" key={post.node.id}>
                         <Link state={{ postId: post.node.id }} to={`/post?postId=${post.node.id}`}>
-                          <h2 className="post-title" dangerouslySetInnerHTML={{
+                          <h3 className="post-title" dangerouslySetInnerHTML={{
                             __html: post.node.title
                           }}>
-                          </h2>
+                          </h3>
                         </Link>
                         <p className="post-subtitle" dangerouslySetInnerHTML={{
                           __html: post.node.excerpt

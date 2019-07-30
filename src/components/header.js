@@ -11,11 +11,9 @@ const Header = () => (
 <div className="container">
   <style jsx>{`
     
-      .nav-link.active::before {
-        width: 150px;
-        height: 50px;
+      .nav-link.active {
+
         background-color: #f48383;
-        position: relative;
       }
   `}
   </style>

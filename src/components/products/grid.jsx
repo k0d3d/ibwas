@@ -1,8 +1,9 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import { Link } from '@reach/router'
 
-const grid = () => {
+const Grid = () => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const PRODUCTS_QUERY = gql`
@@ -112,10 +113,16 @@ const grid = () => {
                     data.products.nodes.map(product => (
                       <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
                         <div className="card">
-                          <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
+                          <Link state={{productId: product.id}} to={`/product?productId=${product.id}`}>
+                            <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
+                          </Link>
                           <div className="card-body">
-                            <h5 className="card-title">{product.name}</h5>
-                            <p className="card-text">{product.price}</p>
+                            <h5 className="card-title">
+                              <Link state={{productId: product.id}} to={`/product?productId=${product.id}`}>
+                                {product.name}
+                              </Link>
+                            </h5>
+                            <p className="card-text"><span style={{fontSize: "12px"}}>from&nbsp;</span>{product.price}</p>
                             <a href="#" className="btn btn-primary order-btn">Order Now</a>
                           </div>
                         </div>
@@ -133,4 +140,4 @@ const grid = () => {
   );
 }
 
-export default grid;
+export default Grid;

@@ -1,7 +1,7 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import { navigate, Link } from 'gatsby'
+import { navigate, Link } from '@reach/router'
 
 import './blog.scss'
 
@@ -46,7 +46,7 @@ export function BlogStorySection () {
                   <div className="col-md-12">
                     <div className="media">
                       <img src={data.posts.edges[0].node.featuredImage.sourceUrl} className="img-responsive" alt="" />
-                      <div className="media-body align-self-center">
+                      <div className="media-body align-self-center p-2">
                         <h5 className="mt-0 card-title">
                            <Link 
                               dangerouslySetInnerHTML={{
