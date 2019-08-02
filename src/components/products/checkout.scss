@@ -1,0 +1,64 @@
+@import '../../styles/queries';
+
+
+#checkout {
+
+  text-align: center;
+  button:first-child {
+    float: right;
+    border-radius: 50px;
+  }
+  h4 {
+    text-align: center;
+    width: 80%;
+    margin: 70px auto 10px;
+  }
+  img.card-img-top {
+    width: 150px;
+    margin: 0 auto;
+  }
+  .card-text.msg {
+    visibility: hidden;
+    transition: 0.3ms;
+  }
+  .card {
+    border: solid 1px #dee2e6;
+    border-radius: 10px;
+    background: #e9ecef78, radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+    padding: 2em;
+    flex-basis: calc(33% - 30px);
+    width: 100%;
+    max-width: 33%;
+    margin: 0 15px;
+    transition: background 0.8s;
+    &:click {
+      background-color: #6eb9f7;
+      background-size: 100%;
+      transition: background 0s;
+    }
+    &:hover {
+      cursor: pointer;
+      box-shadow: #343a402e 1px -6px 19px 1px;
+      .card-text.msg {
+        visibility: visible;
+        
+      }
+      img {
+        width: 120px;
+      }
+    }
+  }
+  .cards {
+    margin-top: 50px;
+  }
+
+}
+
+@include respond-below(sm) {
+  #checkout {
+    .card {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+}

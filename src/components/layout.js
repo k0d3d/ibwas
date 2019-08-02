@@ -22,7 +22,7 @@ import "../styles/custom.scss"
 import "./layout.scss"
 import { useEffect } from "react";
 
-const client = new ApolloClient({ uri: 'https://ibwasngltd.com/api/graphql' });
+const client = new ApolloClient({ uri: 'http://www2.ibwasngltd.com/graphql' });
 
 
 const Layout = ({ children }) => {

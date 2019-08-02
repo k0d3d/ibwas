@@ -123,7 +123,6 @@ const Grid = () => {
                               </Link>
                             </h5>
                             <p className="card-text"><span style={{fontSize: "12px"}}>from&nbsp;</span>{product.price}</p>
-                            <a href="#" className="btn btn-primary order-btn">Order Now</a>
                           </div>
                         </div>
                       </div>

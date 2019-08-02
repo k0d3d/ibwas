@@ -5,7 +5,7 @@ import {
   BlogStorySection, 
 } from '../components/home/index'
 
-import { Grid} from '../components/products'
+import { Grid } from '../components/products'
 
 
 const products = () => {

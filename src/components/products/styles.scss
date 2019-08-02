@@ -1,0 +1,17 @@
+@import '../../styles/queries';
+
+#product-detail {
+  article {
+    width: 70vw;
+    margin: 0 auto;
+  }
+  .media {
+    background: #e9ecef;
+    img {
+      width: 100%;
+    }
+  }
+  button {
+    border-radius: 0;
+  }
+}
