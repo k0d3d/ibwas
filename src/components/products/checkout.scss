@@ -4,14 +4,18 @@
 #checkout {
 
   text-align: center;
+  position: relative;
   button:first-child {
-    float: right;
+    position: absolute;
     border-radius: 50px;
+    left: 50%;
+    min-width: 130px;
+    margin-left: -75px;
   }
   h4 {
-    text-align: center;
+    text-align: left;
     width: 80%;
-    margin: 70px auto 10px;
+    margin: 0px auto 10px;
   }
   img.card-img-top {
     width: 150px;

@@ -6,7 +6,6 @@ import PropTypes  from 'prop-types'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {useStateContext} from './store'
-import isEqual from 'lodash.isequal'
 
 
 // import './styles.scss'
@@ -52,16 +51,19 @@ function ProductDetails () {
           border-radius: 0;
         }
       `}</style>
+      {
+        !product.inCart &&
+      
         <section id="product-detail" className="section mt-5 mb-5">
           <div className="section-content pt-5">
             <div className="row">
               <div className="col-12">
 
-              <Query query={PRODUCT_QUERY} variables={{productId: product.productId}}>
+              <Query query={PRODUCT_QUERY} variables={{productId: product.id}}>
                 {
                   ({loading, data}) => {
                     if (loading) return <div>Loading...</div>;
-
+                    if (!data.product) return
                     return ( 
                       <article>
                         <h3 className="section-title">
@@ -93,7 +95,8 @@ function ProductDetails () {
 
                               validationSchema={Yup.object().shape(
                                 {
-                                  orderedQuantity: Yup.string().required('Required')
+                                  orderedQuantity: Yup.number().min(1, 'Enter the quantity'),
+                                  productType: Yup.string().required('Choose a product type.'),
                                 }
                               )}
                               onSubmit={(values, { setSubmitting }) => {
@@ -111,6 +114,7 @@ function ProductDetails () {
                               {
                                 props => {
                                   const {
+                                    errors,
                                     isSubmitting,
                                     handleChange,
                                     handleSubmit,
@@ -118,24 +122,30 @@ function ProductDetails () {
 
                                   return (
                                     <Form onSubmit={handleSubmit}>
-                                      <div className="form-group">                  
+                                      <div className="form-group"> 
+                                      <label htmlFor="orderedQuantity">Choose a Type</label>                 
                                         <select 
                                           className="custom-select" 
                                           onChange={handleChange}
                                           name="productType"
                                           multiple
                                         >
-                                          <option>Choose type</option>
                                           <option value="HDF">HDF</option>
                                           <option value="MDF">MDF</option>
                                         </select>
+                                        {errors.productType ? (
+                                          <small style={{display: "block"}} className="form-text invalid-feedback">{errors.productType}</small>
+                                        ) : null}
                                       </div>
                                       <div className="form-row">
                                         <div className="col-6">                             
                                           <div className="form-group">
                                             <label htmlFor="orderedQuantity">Quantity</label>
                                             <Field id="orderedQuantity" className="form-control" type="number" name="orderedQuantity" />
-                                            <ErrorMessage name="qty" component="div" />
+                                            <ErrorMessage name="orderedQuantity" component="div" />
+                                            {errors.orderedQuantity ? (
+                                              <small style={{display: "block"}} className="form-text invalid-feedback">{errors.orderedQuantity}</small>
+                                            ) : null}
                                           </div>
                                         </div>
                                       </div>
@@ -156,10 +166,12 @@ function ProductDetails () {
                   }
                 }
               </Query>
+              
               </div> 
             </div>
           </div>
         </section>      
+      }
     </>
   )
 
