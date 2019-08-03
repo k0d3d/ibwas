@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import fetch from 'node-fetch'
 
 import Header from "./header"
 import SEO from "./seo";
@@ -22,10 +23,11 @@ import "../styles/custom.scss"
 import "./layout.scss"
 import { useEffect } from "react";
 
-const client = new ApolloClient({ uri: 'http://www2.ibwasngltd.com/graphql' });
+export const client = new ApolloClient({ uri: 'http://www2.ibwasngltd.com/graphql', fetch });
 
 
 const Layout = ({ children }) => {
+    
   useEffect(() => {
     try {
       // eslint-disable-next-line no-undef
