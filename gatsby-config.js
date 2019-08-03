@@ -22,7 +22,7 @@ module.exports = {
       options: {
         typeName: "WordPress",
         fieldName: "swapi",
-        url: "http://www2.ibwasngltd.com/graphql",
+        url: "https://www2.ibwasngltd.com/graphql",
       },
     },
     {
