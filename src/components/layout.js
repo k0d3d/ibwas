@@ -23,7 +23,7 @@ import "../styles/custom.scss"
 import "./layout.scss"
 import { useEffect } from "react";
 
-export const client = new ApolloClient({ uri: 'http://www2.ibwasngltd.com/graphql', fetch });
+export const client = new ApolloClient({ uri: 'https://www2.ibwasngltd.com/graphql', fetch });
 
 
 const Layout = ({ children }) => {
