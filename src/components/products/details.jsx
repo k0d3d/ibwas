@@ -52,7 +52,7 @@ function ProductDetails () {
         }
       `}</style>
       {
-        !product.inCart &&
+        !product.inCart && !product.orderSent &&
       
         <section id="product-detail" className="section mt-5 mb-5">
           <div className="section-content pt-5">

@@ -7,6 +7,7 @@ import Checkout from '../components/products/checkout'
 import PageTitle from '../components/page-title'
 import { ProductProvider } from '../components/products/store'
 import { MoreStuff } from '../components/products/more'
+import Thankyou from '../components/products/thankyou'
 
 const queryString = require('query-string')
 
@@ -56,6 +57,7 @@ const Product = ({location}) => {
         }
         return {
           ...state,
+          inCart: false,
           orderSent: true
         }
       }
@@ -78,6 +80,7 @@ const Product = ({location}) => {
           <div className="container">        
             <ProductDetail />
             <Checkout />
+            <Thankyou />
             <MoreStuff>
               <ExploreProducts />
             </MoreStuff>

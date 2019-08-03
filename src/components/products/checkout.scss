@@ -61,8 +61,23 @@
 @include respond-below(sm) {
   #checkout {
     .card {
-      flex-basis: 100%;
+      flex-basis: calc(100% - 30px);
       max-width: 100%;
+      max-height: 20vh; 
+      padding: 1em;
+      margin: 15px auto;
+      flex-direction: row;
+      text-align: center;
+      .card-body {
+        margin-left: 10px;
+        padding: .5em;
+        width: 70%;
+      }
+      img.card-img-top {
+        max-width: 50px;
+        margin: 0;
+        
+      }
     }
   }
 }

@@ -1,15 +1,10 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
-
-import emailImg from './email.svg'
-import smartphoneImg from './smartphone.svg'
-import whatsAppImg from './whatsapp.svg'
+import { Link } from 'gatsby'
 import {useStateContext} from './store'
 
 import './checkout.scss'
 
-function Checkout () {
+function Thankyou () {
   const [product, dispatch] = useStateContext()
 
 
@@ -22,6 +17,9 @@ function Checkout () {
           h5 {
             margin: 1em 0 0.1em; 
           }
+          section {
+            margin: 100px auto;
+          }
 
         `
       }
@@ -29,32 +27,30 @@ function Checkout () {
     {
       product.orderSent && 
 
-        <section id="checkout" className="section p-5">
-          
-          <div className="row mt-5">
-            <div className="col-md-12">
-              <h4>
-                Thank you for your interest in buying from us.
-              </h4>
-              <p>
-                Continue Shopping.
-              </p>
-              <p>
-                Send Order again
-              </p>
-            </div>
-            <div className="col-md-12">
-              <div className="cart-media">
-                <p className="text-right text-muted">
-                  <span style={{"fontSize": "20px", "fontWeight": "bold"}}>
-                    {product.orderedQuantity} 
-                  </span>&nbsp;X&nbsp;{product.name}
+        <section id="Thankyou" className="section p-5">
+          <div className="section-content">
+            <div className="row mt-5">
+              <div className="col-md-12">
+                <h3>
+                  Thank you for your interest in buying from us.
+                </h3>
+                <p className="text-center">
+                  <Link to="products" className="btn btn-outline-primary">
+                    Continue Shopping.
+                  </Link>
                 </p>
-                
+                <p className="text-center">
+                  <button onClick={() => {
+                    dispatch({
+                      type: 'sendOrderByWhatsApp'
+                    })
+                  }} className="btn btn-link">
+                    Send Order again
+                  </button>
+                </p>
               </div>
             </div>
-          </div>
-          
+          </div>          
         </section>
       }
     </>
@@ -62,8 +58,8 @@ function Checkout () {
   )
 }
 
-Checkout.propTypes = {
+Thankyou.propTypes = {
 
 }
 
-export default Checkout
+export default Thankyou
