@@ -3,6 +3,7 @@ import img1 from '../../images/Rectangle 7.3.jpg'
 import img2 from '../../images/Rectangle 7.4.jpg'
 import img3 from '../../images/Rectangle 7.5.jpg'
 import img4 from '../../images/Rectangle 7.6.jpg'
+import {Link} from 'gatsby'
 
 import './explore-products.scss'
 
@@ -24,9 +25,9 @@ export const ExploreProducts = () => (
                   <img className=" mx-auto d-block" src={img1} alt="cabinets" />
                 </div>
                 <p className="caption">
-                  <button className="btn btn-link">
+                  <Link to="products" className="btn btn-link">
                     Cabinet
-                  </button>
+                  </Link>
                 </p>
               </div>
               <div data-aos="zoom-in-right" className="text-center timg col-6 col-md-3">
@@ -34,9 +35,9 @@ export const ExploreProducts = () => (
                   <img className=" mx-auto d-block" src={img2} alt="doors" />
                 </div>
                 <p className="caption">
-                  <button className="btn btn-link">
+                  <Link to="products" className="btn btn-link">
                     Doors
-                  </button>
+                  </Link>
                 </p>
               </div>
               <div data-aos="zoom-in-left" className="text-center timg col-6 col-md-3">
@@ -44,9 +45,9 @@ export const ExploreProducts = () => (
                   <img className=" mx-auto d-block" src={img3} alt="Beds" />
                 </div>
                 <p className="caption">
-                  <button className="btn btn-link">
+                  <Link to="products" className="btn btn-link">
                     Beds
-                  </button>
+                  </Link>
                 </p>
               </div>
               <div data-aos="zoom-in-left" className="text-center timg col-6 col-md-3">
@@ -54,9 +55,9 @@ export const ExploreProducts = () => (
                   <img className=" mx-auto d-block" src={img4} alt="Tables" />
                 </div>
                 <p className="caption">
-                  <button className="btn btn-link">
+                  <Link to="products" className="btn btn-link">
                     Tables
-                  </button>
+                  </Link>
                 </p>
               </div>
             </div>

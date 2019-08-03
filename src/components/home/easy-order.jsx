@@ -1,6 +1,7 @@
 import React from "react"
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import {Link} from 'gatsby'
 
 
 import './easy-order.scss'
@@ -67,9 +68,9 @@ export const EasyOrder = () => {
                                 }}>
                               </div>
                               <p style={{textAlign: 'right'}}>
-                                <button className="btn btn-link">
+                                <Link to="products" className="btn btn-link">
                                   Order now
-                                </button>
+                                </Link>
                               </p>
                               <div className="card-img-top">
                                 <img src={section.node.featuredImage.sourceUrl} alt={section.node.title}/>
