@@ -6,7 +6,7 @@ export const NewsletterSection = () => {
 
   return (
     <>
-      <div className="section section-footer">
+      <div id="contact-us" className="section section-footer">
         <div className="container footer-top">
           <div className="col flow">
             <div className="heading-beta margin-bottom">Let&#39;s Talk</div>
