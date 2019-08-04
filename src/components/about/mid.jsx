@@ -31,7 +31,7 @@ export function MidSection () {
         },
         img2: file(relativePath: { eq: "2.jpg" }) {
           childImageSharp {
-            fixed(width: 279, height: 384 ) {
+            fixed(width: 259, height: 384 ) {
               ...GatsbyImageSharpFixed
             }
           }

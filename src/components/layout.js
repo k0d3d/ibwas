@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
       // eslint-disable-next-line no-undef
       AOS.init({
         once: true,
-        disabled: function () {
+        disable: function () {
           if (typeof window !== "undefined") {
             return false
           }
