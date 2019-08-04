@@ -20,10 +20,6 @@ export const menuItems = [
   {
     uri: '/posts',
     label: 'Stories'
-  },
-  {
-    uri: '/contact',
-    label: 'Contact '
   }
 ]
 
