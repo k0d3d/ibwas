@@ -1,10 +1,9 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import Img from "gatsby-image";
+import { graphql, useStaticQuery} from 'gatsby'
 
-import img1 from "./1.jpg"
-import img2 from './2.jpg'
-import img3 from './3.jpg'
 
 import './about.scss'
 
@@ -20,6 +19,32 @@ export function MidSection () {
         }
       }
     `
+
+  const images = useStaticQuery(graphql`
+      query MidSectionImagesQuery {
+        img1: file(relativePath: { eq: "1.jpg" }) {
+          childImageSharp {
+            fixed(width: 279, height: 384 ) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        },
+        img2: file(relativePath: { eq: "2.jpg" }) {
+          childImageSharp {
+            fixed(width: 279, height: 384 ) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        },
+        img3: file(relativePath: { eq: "3.jpg" }) {
+          childImageSharp {
+            fixed(width: 534, height: 384 ) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        },
+      }
+  `)
   
   return (
     <>
@@ -38,9 +63,10 @@ export function MidSection () {
           <div className="row">
             <img src="gallery/24.jpg" alt="classic-room" className="d-xs-img" />
             <div className="img-group d-md-img">
-              <img src={img3} alt="bed3" />
-              <img src={img1} alt="bed1" />
-              <img src={img2} alt="bed2" />
+              
+              <Img fixed={images.img3.childImageSharp.fixed} alt="bed3" />
+              <Img fixed={images.img1.childImageSharp.fixed} alt="bed1" />
+              <Img fixed={images.img2.childImageSharp.fixed} alt="bed2" />
             </div>
             <Query query={ABOUT_QUERY}>
               {
