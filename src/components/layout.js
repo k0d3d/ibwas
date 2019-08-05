@@ -16,12 +16,13 @@ import Header from "./header"
 import SEO from "./seo";
 import AOS from 'aos'
 import 'aos/dist/aos.css';
-
 import { NewsletterSection } from './home/newsletter-section'
 
 import "../styles/custom.scss"
 import "./layout.scss"
 import { useEffect } from "react";
+
+const isBot = require('isbot')
 
 export const client = new ApolloClient({ uri: 'https://www2.ibwasngltd.com/graphql', fetch });
 
@@ -35,6 +36,9 @@ const Layout = ({ children }) => {
         once: true,
         disable: function () {
           if (typeof window !== "undefined") {
+            if (isBot(navigator.userAgent)) {
+              return true
+            }
             return false
           }
           return true

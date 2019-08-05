@@ -1,10 +1,35 @@
 import React from 'react';
 import gql from 'graphql-tag';
+import { graphql, useStaticQuery } from 'gatsby'
 import { Query } from 'react-apollo';
 import { Link } from '@reach/router'
 
-const Grid = () => {
 
+
+function ProductItems ({data}) {
+  return ( 
+    data.products.nodes.map(product => (
+      <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
+        <div className="card">
+          <Link state={{productId: product.id}} to={`/product?productId=${product.id}`}>
+            <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
+          </Link>
+          <div className="card-body">
+            <h5 className="card-title">
+              <Link state={{productId: product.id}} to={`/product?productId=${product.id}`}>
+                {product.name}
+              </Link>
+            </h5>
+            <p className="card-text"><span style={{fontSize: "12px"}}>from&nbsp;</span>{product.price}</p>
+          </div>
+        </div>
+      </div>
+    ))
+  )
+}
+
+
+function useApolloQuery () {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const PRODUCTS_QUERY = gql`
       query{
@@ -23,6 +48,47 @@ const Grid = () => {
         }
       }
     `
+  return <Query query={PRODUCTS_QUERY}>
+          {
+            ({loading, data}) => {
+              if (loading) return <div>Loading...</div>;
+              <ProductItems data={data}/>
+
+            }
+          }
+        </Query>
+ 
+}
+
+
+
+
+const Grid = () => {
+  
+  let refreshed = false
+
+  const { swapi } = useStaticQuery(
+    graphql`
+      query{
+        swapi {
+          products(first: 15) {
+            nodes {
+              id
+              productId
+              name
+              type
+              price
+              image {
+                id
+                sourceUrl
+              }
+            }
+          }
+        }
+      }    
+    `
+  )
+
   return (
     <>
       <style jsx>
@@ -104,34 +170,10 @@ const Grid = () => {
           </h6>
 
           <div className="row">
-            <Query query={PRODUCTS_QUERY}>
-              {
-                ({loading, data}) => {
-                  if (loading) return <div>Loading...</div>;
-                  
-                  return ( 
-                    data.products.nodes.map(product => (
-                      <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
-                        <div className="card">
-                          <Link state={{productId: product.id}} to={`/product?productId=${product.id}`}>
-                            <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
-                          </Link>
-                          <div className="card-body">
-                            <h5 className="card-title">
-                              <Link state={{productId: product.id}} to={`/product?productId=${product.id}`}>
-                                {product.name}
-                              </Link>
-                            </h5>
-                            <p className="card-text"><span style={{fontSize: "12px"}}>from&nbsp;</span>{product.price}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))
-                  )
-                }
-              }
-            </Query>
-             
+            {
+              !refreshed && <ProductItems data={swapi}/>
+            }
+           
           </div>
         </div>
       </section>
