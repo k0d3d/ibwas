@@ -11,7 +11,6 @@ import {useStateContext} from './store'
 // import './styles.scss'
 
 function ProductDetails () {
-
   const [product, dispatch] = useStateContext()
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
