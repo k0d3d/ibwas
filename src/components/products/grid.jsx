@@ -7,21 +7,94 @@ import { Link } from '@reach/router'
 function ProductItems ({data}) {
   return ( 
     data.products.nodes.map(product => (
-      <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
-        <div className="card">
-          <Link state={{productId: product.id}} to={`/product/${product.slug}`}>
-            <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
-          </Link>
-          <div className="card-body">
-            <h5 className="card-title">
-              <Link state={{productId: product.id}} to={`/product/${product.slug}`}>
-                {product.name}
-              </Link>
-            </h5>
-            <p className="card-text">Call for price</p>
+      <>
+
+        <style jsx>
+          {`
+            .section-content {
+              z-index: 3;
+              position: relative;
+              h3, h4, h6 {
+                width: 70%;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+              }
+            }
+            
+            .card {
+              border: none;
+              min-width: 288px;
+              min-height: 288px;
+              overflow: hidden;
+              &:hover {
+                background-color: #f2f2f2;
+                box-shadow:rgb(255, 255, 255) 0px 0px 30px 40px inset;
+                transition: box-shadow 350ms;
+                
+                box-sizing: border-box;
+              }
+              &:hover .order-btn {
+                transform: translateX(1px);
+                opacity: 1;
+                transition: transform 250ms ease-in-out;
+              }
+              &:hover .card-img-top {
+                transform: scale(1.525) translate(65px, 77px);
+                transition: transform 250ms ease-in-out;
+              }
+            }
+
+            .card-img-top {
+              transform: scale(0.8);
+              position: relative;
+              z-index: 10;
+            }
+
+            .card-title {
+              font-size: 1rem;
+              font-weight: normal;
+              margin: 0 auto;
+            }
+            .card-text {
+              font-size: 1.5rem;
+            }
+            .card-body {
+              position: relative;
+              z-index: 14;
+              background: white;
+            }
+
+            .order-btn {
+              right: 0px;
+              position: absolute;
+              bottom: 46px;
+              border-radius: 0;
+              transform: translateX(116px);
+              opacity: 0;
+              transition: transform 250ms, opacity 200ms ;
+            }
+
+          `}
+        </style>
+        
+        <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
+          <div className="card">
+            <Link state={{productId: product.id}} to={`/product/${product.slug}`}>
+              <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
+            </Link>
+            <div className="card-body">
+              <h5 className="card-title">
+                <Link state={{productId: product.id}} to={`/product/${product.slug}`}>
+                  {product.name}
+                </Link>
+              </h5>
+              <p className="card-text">Call for price</p>
+            </div>
           </div>
         </div>
-      </div>
+        
+      </>
     ))
   )
 }
@@ -56,74 +129,6 @@ const Grid = () => {
 
   return (
     <>
-      <style jsx>
-        {`
-          .section-content {
-            z-index: 3;
-            position: relative;
-            h3, h4, h6 {
-              width: 70%;
-              text-align: center;
-              margin-left: auto;
-              margin-right: auto;
-            }
-          }
-          
-          .card {
-            border: none;
-            min-width: 288px;
-            min-height: 288px;
-            overflow: hidden;
-            &:hover {
-              background-color: #f2f2f2;
-              box-shadow:rgb(255, 255, 255) 0px 0px 30px 40px inset;
-              transition: box-shadow 350ms;
-              
-              box-sizing: border-box;
-            }
-            &:hover .order-btn {
-              transform: translateX(1px);
-              opacity: 1;
-              transition: transform 250ms ease-in-out;
-            }
-            &:hover .card-img-top {
-              transform: scale(1.525) translate(65px, 77px);
-              transition: transform 250ms ease-in-out;
-            }
-          }
-
-          .card-img-top {
-            transform: scale(0.8);
-            position: relative;
-            z-index: 10;
-          }
-
-          .card-title {
-            font-size: 1rem;
-            font-weight: normal;
-            margin: 0 auto;
-          }
-          .card-text {
-            font-size: 1.5rem;
-          }
-          .card-body {
-            position: relative;
-            z-index: 14;
-            background: white;
-          }
-
-          .order-btn {
-            right: 0px;
-            position: absolute;
-            bottom: 46px;
-            border-radius: 0;
-            transform: translateX(116px);
-            opacity: 0;
-            transition: transform 250ms, opacity 200ms ;
-          }
-
-        `}
-      </style>
       <section className="section mt-5">
         <div className="section-content pt-5">
           <h3 className="section-title">
