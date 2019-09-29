@@ -9,14 +9,7 @@ import logo from '../images/logo.png'
 
 const Header = () => (
 <div className="container">
-  <style jsx>{`
-    
-      .nav-link.active {
 
-        background-color: #f48383;
-      }
-  `}
-  </style>
   <nav className="navbar navbar-expand-lg navbar-light" >
     <Link className="navbar-brand" to="/">
       <span>
@@ -29,10 +22,18 @@ const Header = () => (
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto"></ul>
       <ul className="navbar-nav float-right">
+      <style jsx>{`
+    
+        .navbar-light .nav-link.active {
+            color: blue;
+
+          }
+      `}
+      </style>
         {
           menuItems.map(item => (            
             <li className="nav-item" key={item.uri}>
-                <Link className="nav-link" to={item.uri} activeClassName="active">
+                <Link className="nav-link" to={item.uri} activeClassName="active" exact={true}>
                   {item.label} 
                 </Link>
             </li>
@@ -46,12 +47,5 @@ const Header = () => (
 
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

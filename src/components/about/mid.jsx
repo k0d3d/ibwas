@@ -1,6 +1,4 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
 import Img from "gatsby-image";
 import { graphql, useStaticQuery} from 'gatsby'
 
@@ -8,20 +6,18 @@ import { graphql, useStaticQuery} from 'gatsby'
 import './about.scss'
 
 export function MidSection () {
-  const ABOUT_QUERY = gql`
-      query {
-        pageSectionBy(uri: "about") {
-          id
-          title
-          date
-          uri
-          content
-        }
-      }
-    `
 
-  const images = useStaticQuery(graphql`
-      query MidSectionImagesQuery {
+  const data = useStaticQuery(graphql`
+      query {
+        wp: swapi {
+          pageSectionBy(uri: "about") {
+            id
+            title
+            date
+            uri
+            content
+          }
+        },
         img1: file(relativePath: { eq: "1.jpg" }) {
           childImageSharp {
             fixed(width: 279, height: 384 ) {
@@ -64,24 +60,16 @@ export function MidSection () {
             <img src="gallery/24.jpg" alt="classic-room" className="d-xs-img" />
             <div className="img-group d-md-img">
               
-              <Img fixed={images.img3.childImageSharp.fixed} alt="bed3" />
-              <Img fixed={images.img1.childImageSharp.fixed} alt="bed1" />
-              <Img fixed={images.img2.childImageSharp.fixed} alt="bed2" />
+              <Img fixed={data.img3.childImageSharp.fixed} alt="bed3" />
+              <Img fixed={data.img1.childImageSharp.fixed} alt="bed1" />
+              <Img fixed={data.img2.childImageSharp.fixed} alt="bed2" />
             </div>
-            <Query query={ABOUT_QUERY}>
-              {
-                ({loading, data}) => {
-                  if (loading) return <div>Loading...</div>;
-                  return (
-                    <div className="block-quote" dangerouslySetInnerHTML={{
-                      __html: data.pageSectionBy.content
+            <div className="block-quote" dangerouslySetInnerHTML={{
+                      __html: data.wp.pageSectionBy.content
                     }}>
         
-                    </div>
-                  )
-                }
-              }
-            </Query>
+            </div>
+           
           </div>
         </div>
       </section>

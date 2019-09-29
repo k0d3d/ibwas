@@ -61,7 +61,11 @@ function Checkout () {
                 <p className="card-text msg">Add us using 08094625346</p>
               </div>
             </div>
-            <div className="card">
+            <div className="card" onClick={() => {
+              dispatch({
+                type: 'sendOrderByPhone',
+              })
+            }}>
               <img className="card-img-top" src={smartphoneImg} alt="sales channel" />
               <div className="card-body">
                 <h5 className="card-title">Order by Phone </h5>
@@ -69,7 +73,11 @@ function Checkout () {
                 <p className="card-text msg">Request a call to complete this order</p>
               </div>
             </div>
-            <div className="card">
+            <div className="card"onClick={() => {
+              dispatch({
+                type: 'sendOrderByEmail',
+              })
+            }}>
               <img className="card-img-top" src={emailImg} alt="sales channel" />
               <div className="card-body">
                 <h5 className="card-title">Order by Email</h5>

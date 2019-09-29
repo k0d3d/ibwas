@@ -1,6 +1,5 @@
 import React from 'react';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import { useStaticQuery, graphql } from 'gatsby'
 import { navigate, Link } from '@reach/router'
 
 import './blog.scss'
@@ -11,23 +10,26 @@ export function BlogStorySection () {
     navigate('/posts')
   }
 
-  const POST_QUERY = gql`
+  
+  const data = useStaticQuery(graphql`
     query {
-      posts(first: 1) {
-        edges {
-          node {
-            id
-            title
-            excerpt
-            date
-            featuredImage {
-              sourceUrl
+      swapi {
+        posts(first: 1) {
+          edges {
+            node {
+              id
+              title
+              excerpt
+              date
+              featuredImage {
+                sourceUrl
+              }
             }
           }
         }
       }
     }
-  `
+  `)
   return (
   <>
 
@@ -38,37 +40,29 @@ export function BlogStorySection () {
           Read stories about the furniture and wood industry.
         </h6>
         <div className="row">
-          <Query query={POST_QUERY}>
-            {
-              ({data, loading}) => {
-                if (loading) return <p>Loading...</p>
-                return (
-                  <div className="col-md-12">
-                    <div className="media">
-                      <img src={data.posts.edges[0].node.featuredImage.sourceUrl} className="img-responsive" alt="" />
-                      <div className="media-body align-self-center p-2">
-                        <h5 className="mt-0 card-title">
-                           <Link 
-                              dangerouslySetInnerHTML={{
-                                __html: data.posts.edges[0].node.title
-                              }}
-                              to={`/post?postId=${data.posts.edges[0].node.id}`} 
-                            >
-                           </Link>
-                        </h5>
-                        <p dangerouslySetInnerHTML={{
-                          __html: data.posts.edges[0].node.excerpt
-                        }}>
-                        </p>
-        
-                      </div>
-                    </div>
-                  </div>
-                )
-              }
-            }
 
-          </Query>
+          <div className="col-md-12">
+            <div className="media">
+              <img src={data.swapi.posts.edges[0].node.featuredImage.sourceUrl} className="img-responsive" alt="" />
+              <div className="media-body align-self-center p-2">
+                <h5 className="mt-0 card-title">
+                    <Link 
+                      dangerouslySetInnerHTML={{
+                        __html: data.swapi.posts.edges[0].node.title
+                      }}
+                      to={`/post?postId=${data.swapi.posts.edges[0].node.id}`} 
+                    >
+                    </Link>
+                </h5>
+                <p dangerouslySetInnerHTML={{
+                  __html: data.swapi.posts.edges[0].node.excerpt
+                }}>
+                </p>
+
+              </div>
+            </div>
+          </div>
+                
         </div>
         <div className="row mt-5">
           <div className="col-12">

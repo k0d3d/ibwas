@@ -23,6 +23,15 @@ $transition-delay: 0.05s;
   width: 42px;
   height: 42px;
 }
+.navbar-light .navbar-nav .nav-link.active {
+  color: blue;
+}
+.nav-item .nav-link.active {
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 20px;
+  border: solid 2px blue;
+}
 
 .section.section-footer {
   padding-top: 160px;
