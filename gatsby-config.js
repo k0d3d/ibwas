@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `IBWAS Nigeria Limited`,
+    siteUrl: `https://www.ibasngltd.com`,
     description: `We serve many resellers, wood merchants and avid hobbyist with wooden parts and furniture.`,
     author: `@gatsbyjs`,
   },
@@ -8,6 +9,14 @@ module.exports = {
     `gatsby-transformer-sharp`, 
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    {
+
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        createLinkInHead: true
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
