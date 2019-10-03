@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `IBWAS Nigeria Limited`,
-    siteUrl: `https://www.ibasngltd.com`,
-    description: `We serve many resellers, wood merchants and avid hobbyist with wooden parts and furniture.`,
+    siteUrl: `https://www.ibwasngltd.com`,
+    description: `We serve many resellers, wood merchants and avid hobbyist with wooden parts and furniture. We are located in Lagos Nigeria. We sell HDF, MDF, Particle Board, Plywood and more.`,
     author: `@gatsbyjs`,
   },
   plugins: [

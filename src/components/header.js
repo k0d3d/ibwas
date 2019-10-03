@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 import React from "react"
 
 import MenuBtn, { menuItems } from './menu-btn'
@@ -33,7 +33,7 @@ const Header = () => (
         {
           menuItems.map(item => (            
             <li className="nav-item" key={item.uri}>
-                <Link className="nav-link" to={item.uri} activeClassName="active" exact={true}>
+                <Link className="nav-link" to={item.uri} activeClassName="active" exact="true">
                   {item.label} 
                 </Link>
             </li>

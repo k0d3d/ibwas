@@ -20,6 +20,7 @@ export function BlogStorySection () {
               id
               title
               excerpt
+              slug
               date
               featuredImage {
                 sourceUrl
@@ -50,7 +51,7 @@ export function BlogStorySection () {
                       dangerouslySetInnerHTML={{
                         __html: data.swapi.posts.edges[0].node.title
                       }}
-                      to={`/post?postId=${data.swapi.posts.edges[0].node.id}`} 
+                      to={`/post/${data.swapi.posts.edges[0].node.slug}`} 
                     >
                     </Link>
                 </h5>

@@ -1,6 +1,7 @@
 import React from "react"
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import { useStaticQuery, graphql } from 'gatsby'
 import {Link} from 'gatsby'
 
 
@@ -28,7 +29,31 @@ export const EasyOrder = () => {
       }
     }
   ` 
-
+  const data = useStaticQuery(
+    graphql`
+    query {
+      swapi {
+        pageSections(
+          where: {
+            categoryName: "easyorder"
+          }
+        ){
+          edges {
+            node {
+              id
+              title
+              content
+              featuredImage {
+                id
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+    `
+  )
 
   return (
     <>
@@ -49,41 +74,35 @@ export const EasyOrder = () => {
           </h6>
 
           <div className="row justify-content-around">
-            <Query query={PAGE_SECTION}>
-              {
-                ({loading, data}) => {
-                  if (loading) return <div>Loading...</div>;
-                  return (
-                    data.pageSections.edges.map(
-                      (section) => (
+            {
+              data.swapi.pageSections.edges.map(
+                (section) => (
 
-                        <div className="col-md-4 col-sm-12" key={section.node.id} data-aos="zoom-out-down">
-                          <div className="card">
-                            <div className="card-body">
-                              <h5 className="card-title" dangerouslySetInnerHTML={{
-                                  __html: section.node.title
-                                }}></h5>
-                              <div className="card-text" dangerouslySetInnerHTML={{
-                                  __html: section.node.content
-                                }}>
-                              </div>
-                              <p style={{textAlign: 'right'}}>
-                                <Link to="products" className="btn btn-link">
-                                  Order now
-                                </Link>
-                              </p>
-                              <div className="card-img-top">
-                                <img src={section.node.featuredImage.sourceUrl} alt={section.node.title}/>
-                              </div>
-                            </div>
-                          </div>
+                  <div className="col-md-4 col-sm-12" key={section.node.id} data-aos="zoom-out-down">
+                    <div className="card">
+                      <div className="card-body">
+                        <h5 className="card-title" dangerouslySetInnerHTML={{
+                            __html: section.node.title
+                          }}></h5>
+                        <div className="card-text" dangerouslySetInnerHTML={{
+                            __html: section.node.content
+                          }}>
                         </div>
-                      )
-                    )
-                  )    
-                }
-              }
-            </Query>
+                        <p style={{textAlign: 'right'}}>
+                          <Link to="products" className="btn btn-link">
+                            Order now
+                          </Link>
+                        </p>
+                        <div className="card-img-top">
+                          <img src={section.node.featuredImage.sourceUrl} alt={section.node.title}/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              )
+            }
+            
           </div>
                 
           </div>

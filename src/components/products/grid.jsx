@@ -7,9 +7,8 @@ import { Link } from '@reach/router'
 function ProductItems ({data}) {
   return ( 
     data.products.nodes.map(product => (
-      <>
-
-        <style jsx>
+        <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
+          <style jsx>
           {`
             .section-content {
               z-index: 3;
@@ -77,8 +76,6 @@ function ProductItems ({data}) {
 
           `}
         </style>
-        
-        <div className="col-sm col-md-4 mt-3 mb-2" key={product.id}>
           <div className="card">
             <Link state={{productId: product.id}} to={`/product/${product.slug}`}>
               <img src={product.image.sourceUrl} className="card-img-top" alt="product.slug" />
@@ -92,9 +89,7 @@ function ProductItems ({data}) {
               <p className="card-text">Call for price</p>
             </div>
           </div>
-        </div>
-        
-      </>
+        </div>        
     ))
   )
 }
